@@ -1,0 +1,56 @@
+{% extends "AppBonos/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+<div class="container px-5 my-5">
+    <h2 class="display-4" >Ingrese especie</h2>
+    <br>
+    <form id="contactForm" action="/AppBlog/form_dolares/" method="POST">{% csrf_token %}
+        <div class="mb-3">
+            <label class="form-label" for="codigo">Código</label>
+            <input class="form-control" name="codigo" name = "codigo" type="text" placeholder="" data-sb-validations="required" />
+            <div class="invalid-feedback" data-sb-feedback="codigo:required">Código: is required</div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="denominacion">Denominación</label>
+            <input class="form-control" name="denominacion" type="text" placeholder="" data-sb-validations="required" />
+            <div class="invalid-feedback" data-sb-feedback="denominacion:required">Denominación: is required</div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="emisor">Emisor</label>
+            <input class="form-control" name="emisor" type="text" placeholder="" data-sb-validations="required" />
+            <div class="invalid-feedback" data-sb-feedback="emisor:required">Emisor: is required</div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="fecha_emision">Fecha de emisión</label>
+            <input class="form-control" name="fecha_emision" type="date" placeholder="" data-sb-validations="required" />
+            <div class="invalid-feedback" data-sb-feedback="fecha_emision:required">Fecha de emisión: is required</div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="fecha_vencimiento">Fecha de vencimiento</label>
+            <input class="form-control" name="fecha_vencimiento" type="date" placeholder="" data-sb-validations="required" />
+            <div class="invalid-feedback" data-sb-feedback="fecha_vencimiento:required">Fecha de vencimiento: is required</div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="amortizacion">Amortización</label>
+            <input class="form-control" name="amortizacion" type="text" placeholder="" data-sb-validations="required" />
+            <div class="invalid-feedback" data-sb-feedback="amortizacion:required">Amortización: is required</div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="interes">Interés</label>
+            <input class="form-control" name="interes" type="text" placeholder="" data-sb-validations="required" />
+            <div class="invalid-feedback" data-sb-feedback="interes:required">Interés: is required</div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="ley">Ley</label>
+            <input class="form-control" name="ley" type="text" placeholder="" data-sb-validations="required" />
+            <div class="invalid-feedback" data-sb-feedback="ley:required">Ley: is required</div>
+        </div>
+        <div class="d-grid">
+            <button class="btn btn-primary btn-lg enabled" id="submitButton" type="submit">Guardar</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

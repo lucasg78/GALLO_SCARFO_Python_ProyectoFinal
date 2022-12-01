@@ -4,11 +4,15 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 
-class Cantante(models.Model):
-    nombre = models.CharField(max_length=30)
-    apellido = models.CharField(max_length=30)
-    fecha_nacimiento = models.DateField(null=True)
-    email = models.EmailField()
+class Dolar(models.Model):
+    codigo = models.CharField(max_length=30)
+    denominacion = models.CharField(max_length=30)
+    emisor = models.CharField(max_length=30)
+    fecha_emision = models.DateField(null=True)
+    fecha_vencimiento = models.DateField(null=True)
+    amortizacion = models.CharField(max_length=30)
+    interes = models.CharField(max_length=30)
+    ley = models.CharField(max_length=30)
 
     def __str__(self) -> str:
         return f"{self.nombre} {self.apellido}"

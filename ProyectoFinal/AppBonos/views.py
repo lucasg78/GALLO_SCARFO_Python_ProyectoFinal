@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from AppBonos.models import Album, Cantante, Concierto, Articulo
+from AppBonos.models import Album, Dolar, Concierto, Articulo
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -43,10 +43,10 @@ def about(request):
 
 
 @login_required
-def cantantes(request):
-    cantantes = Cantante.objects.all()
-    contexto = {"cantantes_encontrados": cantantes}
-    return render(request, "AppBonos/cantantes.html", context=contexto)
+def dolares(request):
+    dolares = Dolar.objects.all()
+    contexto = {"dolares_encontrados": dolares}
+    return render(request, "AppBonos/dolares.html", context=contexto)
 
 
 @login_required
@@ -91,11 +91,11 @@ def procesar_form_album(request):
 
 
 @login_required
-def procesar_form_cantante(request):
+def procesar_form_dolares(request):
     if request.method != "POST":
-        return render(request, "AppBonos/form_cantantes.html")
+        return render(request, "AppBonos/form_dolares.html")
 
-    cantante = Cantante(
+    cantante = Dolar(
         nombre=request.POST["nombre"],
         apellido=request.POST["apellido"],
         fecha_nacimiento=request.POST["fecha_de_nacimiento"],
@@ -103,7 +103,7 @@ def procesar_form_cantante(request):
     )
 
     cantante.save()
-    return cantantes(request)
+    return dolares(request)
 
 
 @login_required
@@ -147,9 +147,9 @@ def buscar(request):
         return HttpResponse("No enviaste datos")
     else:
         nombre_a_buscar = request.GET["nombre"]
-        cantantes = Cantante.objects.filter(nombre=nombre_a_buscar)
+        dolares = Dolar.objects.filter(nombre=nombre_a_buscar)
 
-        contexto = {"nombre": nombre_a_buscar, "cantantes_encontrados": cantantes}
+        contexto = {"nombre": nombre_a_buscar, "dolares_encontrados": dolares}
 
         return render(request, "AppBonos/resultado_busqueda.html", contexto)
 
@@ -222,8 +222,8 @@ class ArticuloDelete(LoginRequiredMixin, DeleteView):
 
 class CantanteDelete(LoginRequiredMixin, DeleteView):
 
-    model = Cantante
-    success_url = "/AppBonos/cantantes"
+    model = Dolar
+    success_url = "/AppBonos/dolares"
 
 
 class ConciertoDelete(LoginRequiredMixin, DeleteView):
@@ -249,7 +249,7 @@ class ArticuloDetail(LoginRequiredMixin, DetailView):
 
 class CantanteDetail(LoginRequiredMixin, DetailView):
 
-    model = Cantante
+    model = Dolar
     template_name = "AppBonos/cantante_detalle.html"
 
 
@@ -279,11 +279,11 @@ class ArticuloUpdateView(LoginRequiredMixin, UpdateView):
 
 
 class CantanteUpdateView(LoginRequiredMixin, UpdateView):
-    model = Cantante
+    model = Dolar
     fields = ["nombre", "apellido", "fecha_nacimiento", "email"]
 
     def get_success_url(self):
-        return reverse("cantantes")
+        return reverse("dolares")
 
 
 class ConciertoUpdateView(LoginRequiredMixin, UpdateView):
