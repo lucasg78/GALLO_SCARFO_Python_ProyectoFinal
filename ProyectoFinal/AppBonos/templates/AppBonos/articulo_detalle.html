@@ -1,0 +1,24 @@
+{% extends "AppBonos/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+<div class="container px-5 my-5">
+    
+    <div class="card text-center">
+        <div class="card-header">
+         Datos del Articulo
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"><i>{{articulo.nombre}} </i></h5>
+          <p class="card-text"><i> {{articulo.texto}}</i></p>
+          <p class="card-text">Fecha de Edicion: <i> {{articulo.fecha}}</i></p>
+          <a href="{% url 'articulos' %}" class="btn btn-primary">Volver</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+

@@ -1,0 +1,20 @@
+{% extends "AppBonos/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+<div class="container px-5 my-5">
+    <h5 class="display-6" >Cargar Avatar</h5>
+    <br>
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="d-grid">
+            <button class="btn btn-primary btn-lg enabled" id="submitButton" type="submit">Actualizar</button>
+        </div>
+    </form>
+
+</div>
+
+{% endblock %}

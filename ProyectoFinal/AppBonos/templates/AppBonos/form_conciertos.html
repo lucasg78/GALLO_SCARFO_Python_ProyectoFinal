@@ -1,0 +1,32 @@
+{% extends "AppBonos/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+<div class="container px-5 my-5">
+    <h2 class="display-4" >Ingrese Concierto</h2>
+    <br>
+    <form id="contactForm" action="/AppBlog/form_conciertos/" method="POST">{% csrf_token %}
+        <div class="mb-3">
+            <label class="form-label" for="nombre">Nombre:</label>
+            <input class="form-control" name="nombre" type="text" placeholder="Nombre:" data-sb-validations="required" />
+            <div class="invalid-feedback" data-sb-feedback="nombre:required">Nombre: is required.</div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="lugar">Lugar:</label>
+            <input class="form-control" name="lugar" type="text" placeholder="Lugar:" data-sb-validations="required" />
+            <div class="invalid-feedback" data-sb-feedback="lugar:required">Lugar: is required.</div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="fechaDelConcierto">Fecha del Concierto:</label>
+            <input class="form-control" name="fechaDelConcierto" type="date" placeholder="Fecha del Concierto:" data-sb-validations="required" />
+            <div class="invalid-feedback" data-sb-feedback="fechaDelConcierto:required">Fecha del Concierto: is required.</div>
+        </div>
+        <div class="d-grid">
+            <button class="btn btn-primary btn-lg enabled" id="submitButton" type="submit">Guardar</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

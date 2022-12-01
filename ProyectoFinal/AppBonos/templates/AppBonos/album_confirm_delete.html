@@ -1,0 +1,19 @@
+{% extends "AppBonos/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+<div class="container px-5 my-5">
+    <form action="" method="POST"> {% csrf_token %}
+        <h6 class="display-4" >Eliminará un registro de la base de datos</h6>
+        <p>¿Está seguro que desea eliminar el registro?</p>
+        <br>
+        <div class="d-grid">
+            <button class="btn btn-primary btn-lg enabled" id="submitButton" type="submit">Confirmar</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
+

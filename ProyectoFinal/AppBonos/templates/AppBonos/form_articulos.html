@@ -1,0 +1,32 @@
+{% extends "AppBonos/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+<div class="container px-5 my-5">
+    <h2 class="display-4" >Ingrese Artículo</h2>
+    <br>
+    <form action="/AppBlog/form_articulos/" method="POST">{% csrf_token %}
+        <div class="mb-3">
+            <label class="form-label" for="nombre">Nombre:</label>
+            <input class="form-control" name="nombre" type="text" placeholder="Nombre:" data-sb-validations="required" />
+            <div class="invalid-feedback" data-sb-feedback="nombre:required">Nombre: is required.</div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="articulo">Articulo</label>
+            <textarea class="form-control" name="articulo" type="text" placeholder="Articulo" style="height: 10rem;" data-sb-validations="required"></textarea>
+            <div class="invalid-feedback" data-sb-feedback="articulo:required">Articulo is required.</div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="fechaDelArticulo">Fecha del Articulo:</label>
+            <input class="form-control" name="fechaDelArticulo" type="date" placeholder="Fecha del Articulo:" data-sb-validations="required" />
+            <div class="invalid-feedback" data-sb-feedback="fechaDelArticulo:required">Fecha del Articulo: is required.</div>
+        </div>
+        <div class="d-grid">
+            <button class="btn btn-primary btn-lg enabled" id="submitButton" type="submit">Guardar</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

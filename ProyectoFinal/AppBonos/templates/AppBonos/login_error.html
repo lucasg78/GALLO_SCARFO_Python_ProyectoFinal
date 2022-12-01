@@ -1,0 +1,22 @@
+{% extends "AppBonos/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+<div class="container px-5 my-5">
+    <h5 class="display-6" >Error en inicio de sesión</h5>
+    <br>
+    {% if mensaje %}
+       <p> {{ mensaje }} </p>
+    {% endif %}
+    <div class="d-grid">
+        <a href="{% url 'login' %}" class="btn btn-primary">Volver</a>
+    </div>
+</div>
+
+{% endblock %}
+
+    
+
+

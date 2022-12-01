@@ -1,0 +1,26 @@
+{% extends "AppBonos/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+<div class="container px-5 my-5">
+    
+    <div class="card text-center">
+        <div class="card-header">
+         Datos del Album
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"><i>{{ album.nombre }} </i></h5>
+          <p class="card-text">Cantidad de Temas: <i> {{album.cant_temas}}</i></p>
+          <p class="card-text">Fecha de Lanzamiento: <i> {{album.fecha_de_lanzamiento}}</i></p>
+          <a href="{% url 'albums' %}" class="btn btn-primary">Volver</a>
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock %}
+
+

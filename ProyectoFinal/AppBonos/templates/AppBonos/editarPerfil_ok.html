@@ -1,0 +1,19 @@
+{% extends "AppBonos/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+<div class="container px-5 my-5">
+    <h5 class="display-6" >{{ mensaje }} modificado correctamente.</h5>
+    <br>
+    <div class="d-grid">
+        <a href="{% url 'inicio' %}" class="btn btn-primary">Volver a Inicio</a>
+    </div>
+</div>
+
+{% endblock %}
+
+    
+
+

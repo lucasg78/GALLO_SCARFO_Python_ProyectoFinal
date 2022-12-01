@@ -1,0 +1,42 @@
+{% extends "AppBonos/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+<div class="container px-5 my-5">
+    <h4 class="display-6" >Resultado de búsqueda: {{ nombre }}</h4>
+
+    {% if cantantes_encontrados %}
+
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Fecha de Nacimiento</th>
+                <th scope="col">Email</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for cantantes in cantantes_encontrados %}
+                <tr>
+                    <th scope="row">{{forloop.counter}}</th>
+                    <td>{{cantantes.nombre}}</td>
+                    <td>{{cantantes.apellido}}</td>
+                    <td>{{cantantes.fecha_nacimiento}}</td>
+                    <td>{{cantantes.email}}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No se encontraron cantantes con ese nombre.</p>
+    {% endif %}
+
+</div>
+
+{% endblock %}
+
+
