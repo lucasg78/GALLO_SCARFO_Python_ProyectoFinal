@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from AppBonos.models import Album, Dolar, Concierto, Articulo
+from AppBonos.models import Dolar
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -28,7 +28,6 @@ from AppBonos.forms import AvatarForm, UserEditionForm
 
 # Create your views here.
 
-
 def inicio(request):
     try:
         avatar = Avatar.objects.get(user=request.user)
@@ -50,44 +49,8 @@ def dolares(request):
 
 
 @login_required
-def albums(request):
-    albums = Album.objects.all()
-    contexto = {"albums_encontrados": albums}
-    return render(request, "AppBonos/albums.html", context=contexto)
-
-
-@login_required
-def conciertos(request):
-    conciertos = Concierto.objects.all()
-    contexto = {"conciertos_encontrados": conciertos}
-    return render(request, "AppBonos/conciertos.html", context=contexto)
-
-
-@login_required
-def articulos(request):
-    articulos = Articulo.objects.all()
-    contexto = {"articulos_encontrados": articulos}
-    return render(request, "AppBonos/articulos.html", context=contexto)
-
-
-@login_required
 def formularios(request):
     return render(request, "AppBonos/formularios.html")
-
-
-@login_required
-def procesar_form_album(request):
-    if request.method != "POST":
-        return render(request, "AppBonos/form_albums.html")
-
-    album = Album(
-        nombre=request.POST.get("nombreAlbum", "Temp"),
-        cant_temas=request.POST.get("cantidadDeTemas", 10),
-        fecha_de_lanzamiento=request.POST.get("fechaDeLanzamiento", "2020-10-20"),
-    )
-
-    album.save()
-    return albums(request)
 
 
 @login_required
@@ -95,45 +58,19 @@ def procesar_form_dolares(request):
     if request.method != "POST":
         return render(request, "AppBonos/form_dolares.html")
 
-    cantante = Dolar(
-        nombre=request.POST["nombre"],
-        apellido=request.POST["apellido"],
-        fecha_nacimiento=request.POST["fecha_de_nacimiento"],
-        email=request.POST["email"],
+    dolar = Dolar(
+        codigo=request.POST["codigo"],
+        denominacion=request.POST["denominacion"],
+        emisor=request.POST["emisor"],
+        fecha_emision=request.POST["fecha_emision"],
+        fecha_vencimiento=request.POST["fecha_vencimiento"],
+        amortizacion=request.POST["amortizacion"],
+        interes=request.POST["interes"],
+        ley=request.POST["ley"],
     )
 
-    cantante.save()
+    dolar.save()
     return dolares(request)
-
-
-@login_required
-def procesar_form_concierto(request):
-    if request.method != "POST":
-        return render(request, "AppBonos/form_conciertos.html")
-
-    concierto = Concierto(
-        nombre=request.POST["nombre"],
-        lugar=request.POST["lugar"],
-        fecha_de_concierto=request.POST["fechaDelConcierto"],
-    )
-
-    concierto.save()
-    return conciertos(request)
-
-
-@login_required
-def procesar_form_articulo(request):
-    if request.method != "POST":
-        return render(request, "AppBonos/form_articulos.html")
-
-    articulo = Articulo(
-        nombre=request.POST["nombre"],
-        texto=request.POST["articulo"],
-        fecha=request.POST["fechaDelArticulo"],
-    )
-
-    articulo.save()
-    return articulos(request)
 
 
 @login_required
@@ -208,94 +145,37 @@ def register(request):
     return render(request, "AppBonos/registro.html", {"form": form})
 
 
-class AlbumDelete(LoginRequiredMixin, DeleteView):
 
-    model = Album
-    success_url = "/AppBonos/albums"
-
-
-class ArticuloDelete(LoginRequiredMixin, DeleteView):
-
-    model = Articulo
-    success_url = "/AppBonos/articulos"
-
-
-class CantanteDelete(LoginRequiredMixin, DeleteView):
+class DolarDelete(LoginRequiredMixin, DeleteView):
 
     model = Dolar
     success_url = "/AppBonos/dolares"
 
 
-class ConciertoDelete(LoginRequiredMixin, DeleteView):
-
-    model = Concierto
-    success_url = "/AppBonos/conciertos"
-
 
 # Detail Views
 
-
-class AlbumDetail(LoginRequiredMixin, DetailView):
-
-    model = Album
-    template_name = "AppBonos/album_detalle.html"
-
-
-class ArticuloDetail(LoginRequiredMixin, DetailView):
-
-    model = Articulo
-    template_name = "AppBonos/articulo_detalle.html"
-
-
-class CantanteDetail(LoginRequiredMixin, DetailView):
+class DolarDetail(LoginRequiredMixin, DetailView):
 
     model = Dolar
-    template_name = "AppBonos/cantante_detalle.html"
+    template_name = "AppBonos/dolar_detalle.html"
 
-
-class ConciertoDetail(LoginRequiredMixin, DetailView):
-
-    model = Concierto
-    template_name = "AppBonos/concierto_detalle.html"
 
 
 # Update view
 
-
-class AlbumUpdateView(LoginRequiredMixin, UpdateView):
-    model = Album
-    fields = ["nombre", "cant_temas", "fecha_de_lanzamiento"]
-
-    def get_success_url(self):
-        return reverse("albums")
-
-
-class ArticuloUpdateView(LoginRequiredMixin, UpdateView):
-    model = Articulo
-    fields = ["nombre", "texto", "fecha"]
-
-    def get_success_url(self):
-        return reverse("articulos")
-
-
-class CantanteUpdateView(LoginRequiredMixin, UpdateView):
+class DolarUpdateView(LoginRequiredMixin, UpdateView):
     model = Dolar
-    fields = ["nombre", "apellido", "fecha_nacimiento", "email"]
+    fields = ["codigo", "denominacion", "emisor", "amortizacion", "interes", "ley"]
 
     def get_success_url(self):
         return reverse("dolares")
 
 
-class ConciertoUpdateView(LoginRequiredMixin, UpdateView):
-    model = Concierto
-    fields = ["nombre", "lugar", "fecha_de_concierto"]
 
-    def get_success_url(self):
-        return reverse("conciertos")
 
 
 # Editar Perfil
-
 
 @login_required
 def editar_perfil(request):
@@ -332,8 +212,10 @@ def editar_perfil(request):
     return render(request, "AppBonos/editarPerfil.html", contexto)
 
 
-# Avatar
 
+
+
+# Avatar
 
 @login_required
 def agregar_avatar(request):

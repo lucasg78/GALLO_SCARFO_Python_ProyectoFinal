@@ -3,18 +3,33 @@
 {% load static %}
 
 {% block contenidoQueCambia %}
+    <!-- Header-->
+    <header class="masthead text-center text-white mt-0">
+        <div class="masthead-content">
+            <div class="container px-5">
+                <h1 class="masthead-heading mb-0">Invertí en Renta Fija</h1>
+                <h4 class="masthead-subheading mb-0">Financiá la deuda de una entidad pública o privada <br>para cobrar
+                    una renta fija en un plazo de tiempo</h4>
+            </div>
+        </div>
+    </header>
+
 
 <!-- Content section 1-->
 <section id="scroll">
     <div class="container px-5">
         <div class="row gx-5 align-items-center">
             <div class="col-lg-6 order-lg-2">
-                <div class="p-5"><a href="{% url 'cantantes' %}"><img class="img-fluid rounded-circle" src="{% static 'AppBlog/assets/img/01.jpg' %}" alt="..."/></a></div>
+                <div class="p-5"><a href="{% url 'dolares' %}"><img class="img-fluid rounded-circle"
+                            src="{% static 'AppBonos/assets/img/04.webp' %}" alt="..."
+                            style="width: 300px; height: 300px" /></a></div>
             </div>
             <div class="col-lg-6 order-lg-1">
                 <div class="p-5">
-                    <h2 class="display-4">Cantantes...</h2>
-                    <p>En esta sección Ud. podrá tener mucha más información de los cantantes incluidos en este blog. <a href="{% url 'cantantes' %}"> Leer más.</a></p>
+                    <h2 class="display-4" style="font-weight: bold">En dólares</h2>
+                    <p><a href="{% url 'dolares' %}" style="text-decoration:none; color:black;">Brindan protección
+                            ante escenarios de devaluación y ofrecen elevados rendimientos en moneda dura. También
+                            operan en pesos pero pagan renta y capital en dólares.</a></p>
                 </div>
             </div>
         </div>
@@ -25,12 +40,15 @@
     <div class="container px-5">
         <div class="row gx-5 align-items-center">
             <div class="col-lg-6">
-                <div class="p-5"><a href="{% url 'conciertos' %}"></a><img class="img-fluid rounded-circle" src="{% static 'AppBlog/assets/img/02.jpg' %}" alt="..." /></a></div>
+                <div class="p-5"><a href=""></a><img class="img-fluid rounded-circle"
+                        src="{% static 'AppBonos/assets/img/02.jpg' %}" alt="..." /></a></div>
             </div>
             <div class="col-lg-6">
                 <div class="p-5">
-                    <h2 class="display-4">Conciertos...</h2>
-                    <p>En esta sección Ud. podrá tener mucha más información de los conciertos incluidos en este blog. <a href="{% url 'conciertos' %}"> Leer más.</a></p>
+                    <h2 class="display-4">En pesos (ajustados por CER)</h2>
+                    <p>Su capital se ajusta por el Índice de Precios al Consumidor y los intereses son calculados
+                        sobre saldos ajustados. Ideal para poder ganarle a la inflación.<a
+                            href=""> Leer más.</a></p>
                 </div>
             </div>
         </div>
@@ -41,12 +59,15 @@
     <div class="container px-5">
         <div class="row gx-5 align-items-center">
             <div class="col-lg-6 order-lg-2">
-                <div class="p-5"><a href="{% url 'albums' %}"><img class="img-fluid rounded-circle" src="{% static 'AppBlog/assets/img/03.jpg' %}" alt="..." /></a></div>
+                <div class="p-5"><a href=""><img class="img-fluid rounded-circle"
+                            src="{% static 'AppBonos/assets/img/03.jpg' %}" alt="..." /></a></div>
             </div>
             <div class="col-lg-6 order-lg-1">
                 <div class="p-5">
-                    <h2 class="display-4">Albums</h2>
-                    <p>En esta sección Ud. podrá tener mucha más información de los conciertos incluidos en este blog. <a href="{% url 'albums' %}"> Leer más.</a></p>
+                    <h2 class="display-4">En pesos (ajustados por Tasa BADLAR)</h2>
+                    <p>Su capital se ajusta por la tasa de plazos fijos superiores a un millón de pesos. Ideal para
+                        reemplazar el plazo fijo, ya que suelen tener una tasa adicional y mayor liquidez.<a
+                            href=""> Leer más.</a></p>
                 </div>
             </div>
         </div>
@@ -57,12 +78,15 @@
     <div class="container px-5">
         <div class="row gx-5 align-items-center">
             <div class="col-lg-6">
-                <div class="p-5"><a href="{% url 'articulos' %}"></a><img class="img-fluid rounded-circle" src="{% static 'AppBlog/assets/img/04.jpg' %}" alt="..." /></a></div>
+                <div class="p-5"><a href=""></a><img class="img-fluid rounded-circle"
+                        src="{% static 'AppBonos/assets/img/04.jpg' %}" alt="..." /></a></div>
             </div>
             <div class="col-lg-6">
                 <div class="p-5">
-                    <h2 class="display-4">Artículos...</h2>
-                    <p>En esta sección Ud. podrá tener mucha más información de los artículos incluidos en este blog. <a href="{% url 'articulos' %}"> Leer más.</a></p>
+                    <h2 class="display-4">Bonos Dólar-Linked.</h2>
+                    <p>Se pagan en pesos, pero vinculados a la tasa de cambio oficial del dólar. Se ajusta a la
+                        evolución del dólar desde la emisión hasta la fecha de pago. Ideal para cubrirse ante
+                        fluctuaciones del tipo de cambio.<a href=""> Leer más.</a></p>
                 </div>
             </div>
         </div>

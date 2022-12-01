@@ -1,0 +1,29 @@
+{% extends "AppBonos/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+<div class="container" style="margin:7% 0 5% 5%; padding: 0 20% 0 20%;">
+    
+    <div class="card text-center">
+        <div class="card-header">
+         Detalle de la especie
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"><i>{{dolar.codigo}} {{dolar.denominacion}}</i></h5>
+          <p class="card-text">Emisor: <i>{{dolar.emisor}}</i></p>
+          <p class="card-text">Fecha de emisión: <i> {{dolar.fecha_emision}}</i></p>
+          <p class="card-text">Fecha de vencimiento: <i> {{dolar.fecha_vencimiento}}</i></p>
+          <p class="card-text">Amortización <i> {{dolar.amortizacion}}</i></p>
+          <p class="card-text">Interés <i> {{dolar.interes}}</i></p>
+          <p class="card-text">Ley <i> {{dolar.ley}}</i></p>
+          <a href="{% url 'dolares' %}" class="btn btn-primary">Volver</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+                    
+

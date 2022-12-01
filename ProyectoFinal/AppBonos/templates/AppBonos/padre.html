@@ -42,9 +42,9 @@
                     {% if user.is_authenticated %}
                     <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'dolares' %}">Dólares</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'conciertos' %}">Pesos-CER</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'albums' %}">Pesos-BADLAR</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'articulos' %}">Dólar-Linked</a></li>
+                    <li class="nav-item"><a class="nav-link" href="">Pesos-CER</a></li>
+                    <li class="nav-item"><a class="nav-link" href="">Pesos-BADLAR</a></li>
+                    <li class="nav-item"><a class="nav-link" href="">Dólar-Linked</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'busqueda' %}">Búsqueda</a></li>
                     <li class="nav-item"><a><img class="rounded-circle" src='{{ user.avatar.imagen.url }}'
                                 style="max-width: 2em; margin-right: 10px;"></img></a></li>
@@ -69,8 +69,9 @@
         </div>
     </nav>
 
+    {% block contenidoQueCambia %}
     <!-- Header-->
-    <header class="masthead text-center text-white">
+    <header class="masthead text-center text-white mt-0">
         <div class="masthead-content">
             <div class="container px-5">
                 <h1 class="masthead-heading mb-0">Invertí en Renta Fija</h1>
@@ -80,7 +81,6 @@
         </div>
     </header>
 
-    {% block contenidoQueCambia %}
     <!-- Content section 1-->
     <section id="scroll">
         <div class="container px-5">
@@ -106,7 +106,7 @@
         <div class="container px-5">
             <div class="row gx-5 align-items-center">
                 <div class="col-lg-6">
-                    <div class="p-5"><a href="{% url 'conciertos' %}"></a><img class="img-fluid rounded-circle"
+                    <div class="p-5"><a href=""></a><img class="img-fluid rounded-circle"
                             src="{% static 'AppBonos/assets/img/02.jpg' %}" alt="..." /></a></div>
                 </div>
                 <div class="col-lg-6">
@@ -114,7 +114,7 @@
                         <h2 class="display-4">En pesos (ajustados por CER)</h2>
                         <p>Su capital se ajusta por el Índice de Precios al Consumidor y los intereses son calculados
                             sobre saldos ajustados. Ideal para poder ganarle a la inflación.<a
-                                href="{% url 'conciertos' %}"> Leer más.</a></p>
+                                href=""> Leer más.</a></p>
                     </div>
                 </div>
             </div>
@@ -125,7 +125,7 @@
         <div class="container px-5">
             <div class="row gx-5 align-items-center">
                 <div class="col-lg-6 order-lg-2">
-                    <div class="p-5"><a href="{% url 'albums' %}"><img class="img-fluid rounded-circle"
+                    <div class="p-5"><a href=""><img class="img-fluid rounded-circle"
                                 src="{% static 'AppBonos/assets/img/03.jpg' %}" alt="..." /></a></div>
                 </div>
                 <div class="col-lg-6 order-lg-1">
@@ -133,7 +133,7 @@
                         <h2 class="display-4">En pesos (ajustados por Tasa BADLAR)</h2>
                         <p>Su capital se ajusta por la tasa de plazos fijos superiores a un millón de pesos. Ideal para
                             reemplazar el plazo fijo, ya que suelen tener una tasa adicional y mayor liquidez.<a
-                                href="{% url 'albums' %}"> Leer más.</a></p>
+                                href=""> Leer más.</a></p>
                     </div>
                 </div>
             </div>
@@ -144,7 +144,7 @@
         <div class="container px-5">
             <div class="row gx-5 align-items-center">
                 <div class="col-lg-6">
-                    <div class="p-5"><a href="{% url 'articulos' %}"></a><img class="img-fluid rounded-circle"
+                    <div class="p-5"><a href=""></a><img class="img-fluid rounded-circle"
                             src="{% static 'AppBonos/assets/img/04.jpg' %}" alt="..." /></a></div>
                 </div>
                 <div class="col-lg-6">
@@ -152,7 +152,7 @@
                         <h2 class="display-4">Bonos Dólar-Linked.</h2>
                         <p>Se pagan en pesos, pero vinculados a la tasa de cambio oficial del dólar. Se ajusta a la
                             evolución del dólar desde la emisión hasta la fecha de pago. Ideal para cubrirse ante
-                            fluctuaciones del tipo de cambio.<a href="{% url 'articulos' %}"> Leer más.</a></p>
+                            fluctuaciones del tipo de cambio.<a href=""> Leer más.</a></p>
                     </div>
                 </div>
             </div>

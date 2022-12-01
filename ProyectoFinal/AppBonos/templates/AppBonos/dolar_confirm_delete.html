@@ -5,7 +5,8 @@
 {% block contenidoQueCambia %}
 
 <div class="container px-5 my-5">
-    <form action="" method="POST"> {% csrf_token %}
+    <form action="" method="POST"> 
+        {% csrf_token %}
         <h6 class="display-4" >Eliminará un registro de la base de datos</h6>
         <p>¿Está seguro que desea eliminar el registro?</p>
         <br>

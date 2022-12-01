@@ -4,8 +4,8 @@
 
 {% block contenidoQueCambia %}
 
-<div class="container px-5 my-5">
-    <h2 class="display-4" >Títulos en dólares</h2>
+<div class="container" style="margin:10% 0 5% 5%">
+    <h2 style="font-weight: bold; font-size: 40px">Títulos en dólares</h2>
     
     {% if dolares_encontrados %}
         <table class="table table-hover">
@@ -14,7 +14,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Código</th>
                 <th scope="col">Denominación</th>
-                <th scope="col">Emisor/th>
+                <th scope="col">Emisor</th>
                 <th scope="col">Fecha de vencimiento</th>
                 <th scope="col">Detalle</th>
                 <th scope="col">Editar</th>
@@ -29,9 +29,9 @@
                     <td>{{dolares.denominacion}}</td>
                     <td>{{dolares.emisor}}</td>
                     <td>{{dolares.fecha_vencimiento}}</td>
-                    <td> <a href="{% url 'CantanteDetail' cantantes.id %}">Ver</a> </td>
-                    <td> <a href="{% url 'CantanteUpdate' cantantes.id %}">Editar</a> </td>
-                    <td> <a href="{% url 'CantanteDelete' cantantes.id %}">Borrar</a> </td>
+                    <td> <a href="{% url 'DolarDetail' dolares.id %}" style="text-decoration: none; color:blue">Ver</a> </td>
+                    <td> <a href="" style="text-decoration: none; color:blue">Editar</a> </td>
+                    <td> <a href="" style="text-decoration: none; color:blue">Borrar</a> </td>
                 </tr>
             {% endfor %}
             </tbody>
@@ -39,7 +39,7 @@
     {% else %}
         <p>No se encontraron especies cargadas en la base de datos.</p>
     {% endif %}
-    <p><a href="{% url 'form_dolares' %}"> Ingrese una nueva especie.</a></p>
+    <p><a href="{% url 'form_dolares' %}" style="text-decoration: none; color:blue"> Ingrese una nueva especie</a></p>
 </div>
 
 

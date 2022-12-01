@@ -6,7 +6,8 @@
 <div class="container px-5 my-5">
     <h2 class="display-4" >Ingrese especie</h2>
     <br>
-    <form id="contactForm" action="/AppBlog/form_dolares/" method="POST">{% csrf_token %}
+    <form id="contactForm" action="/AppBonos/form_dolares/" method="POST">
+        {% csrf_token %}
         <div class="mb-3">
             <label class="form-label" for="codigo">Código</label>
             <input class="form-control" name="codigo" name = "codigo" type="text" placeholder="" data-sb-validations="required" />
