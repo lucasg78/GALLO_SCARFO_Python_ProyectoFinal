@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from AppBonos.models import Dolar
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
@@ -10,8 +10,6 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
 from django.views.generic import (
-    ListView,
-    CreateView,
     UpdateView,
     DeleteView,
 )
@@ -80,13 +78,13 @@ def busqueda(request):
 
 @login_required
 def buscar(request):
-    if not request.GET["nombre"]:
+    if not request.GET["denominacion"]:
         return HttpResponse("No enviaste datos")
     else:
-        nombre_a_buscar = request.GET["nombre"]
-        dolares = Dolar.objects.filter(nombre=nombre_a_buscar)
+        denominacion_a_buscar = request.GET["denominacion"]
+        dolares = Dolar.objects.filter(denominacion=denominacion_a_buscar)
 
-        contexto = {"nombre": nombre_a_buscar, "dolares_encontrados": dolares}
+        contexto = {"denominacion": denominacion_a_buscar, "dolares_encontrados": dolares}
 
         return render(request, "AppBonos/resultado_busqueda.html", contexto)
 
@@ -146,20 +144,12 @@ def register(request):
 
 
 
-class DolarDelete(LoginRequiredMixin, DeleteView):
-
-    model = Dolar
-    success_url = "/AppBonos/dolares"
-
-
-
 # Detail Views
 
 class DolarDetail(LoginRequiredMixin, DetailView):
 
     model = Dolar
     template_name = "AppBonos/dolar_detalle.html"
-
 
 
 # Update view
@@ -172,6 +162,12 @@ class DolarUpdateView(LoginRequiredMixin, UpdateView):
         return reverse("dolares")
 
 
+# Delete Views
+
+class DolarDelete(LoginRequiredMixin, DeleteView):
+
+    model = Dolar
+    success_url = "/AppBonos/dolares/"
 
 
 
@@ -210,8 +206,6 @@ def editar_perfil(request):
 
     contexto = {"user": user, "form": form}
     return render(request, "AppBonos/editarPerfil.html", contexto)
-
-
 
 
 

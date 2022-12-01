@@ -6,18 +6,19 @@
 
 
 <div class="container px-5 my-5">
-    <h3 class="display-5" >Buscar Cantantes</h3>
+    <h3 class="display-5">Buscar especie</h3>
     <!-- Search form -->
-    <form action="/AppBlog/buscar/" method="GET">
+    <form action="/AppBonos/buscar/" method="GET">
         <div class="active-pink-3 active-pink-4 mb-4">
-            <input class="form-control" name="nombre" id="nombre" type="text" placeholder="Ingrese nombre" aria-label="Search">
+            <input class="form-control" name="denominacion" id="denominacion" type="text" placeholder="Ingrese denominación"
+                aria-label="Search">
             <br>
             <div class="d-grid">
                 <button class="btn btn-primary btn-lg enabled" id="submitButton" type="submit">Buscar</button>
             </div>
         </div>
     </form>
-    
+
 </div>
 
 {% endblock %}

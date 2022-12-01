@@ -30,8 +30,8 @@
                     <td>{{dolares.emisor}}</td>
                     <td>{{dolares.fecha_vencimiento}}</td>
                     <td> <a href="{% url 'DolarDetail' dolares.id %}" style="text-decoration: none; color:blue">Ver</a> </td>
-                    <td> <a href="" style="text-decoration: none; color:blue">Editar</a> </td>
-                    <td> <a href="" style="text-decoration: none; color:blue">Borrar</a> </td>
+                    <td> <a href="{% url 'DolarUpdate' dolares.id %}" style="text-decoration: none; color:blue">Editar</a> </td>
+                    <td> <a href="{% url 'DolarDelete' dolares.id %}" style="text-decoration: none; color:blue">Borrar</a> </td>
                 </tr>
             {% endfor %}
             </tbody>

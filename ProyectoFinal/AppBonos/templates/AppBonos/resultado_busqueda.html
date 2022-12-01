@@ -5,7 +5,7 @@
 {% block contenidoQueCambia %}
 
 <div class="container px-5 my-5">
-    <h4 class="display-6" >Resultado de la búsqueda: {{ nombre }}</h4>
+    <h4 class="display-6" >Resultado de la búsqueda: {{ denominacion }}</h4>
 
     {% if dolares_encontrados %}
 
@@ -13,26 +13,29 @@
             <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Apellido</th>
-                <th scope="col">Fecha de Nacimiento</th>
-                <th scope="col">Email</th>
+                <th scope="col">Código</th>
+                <th scope="col">Denominación</th>
+                <th scope="col">Emisor</th>
+                <th scope="col">Fecha de vencimiento</th>
+                <th scope="col">Detalle</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Borrar</th>
             </tr>
             </thead>
             <tbody>
             {% for dolares in dolares_encontrados %}
                 <tr>
                     <th scope="row">{{forloop.counter}}</th>
-                    <td>{{dolares.nombre}}</td>
-                    <td>{{dolares.apellido}}</td>
-                    <td>{{dolares.fecha_nacimiento}}</td>
-                    <td>{{dolares.email}}</td>
+                    <td>{{dolares.codigo}}</td>
+                    <td>{{dolares.denominacion}}</td>
+                    <td>{{dolares.emisor}}</td>
+                    <td>{{dolares.fecha_vencimiento}}</td>
                 </tr>
             {% endfor %}
             </tbody>
         </table>
     {% else %}
-        <p>No se encontraron especies con ese nombre</p>
+        <p>No se encontraron especies con esa denomiación</p>
     {% endif %}
 
 </div>
