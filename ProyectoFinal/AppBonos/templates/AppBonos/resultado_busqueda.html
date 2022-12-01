@@ -4,42 +4,41 @@
 
 {% block contenidoQueCambia %}
 
-<div class="container px-5 my-5">
-    <h4 class="display-6" >Resultado de la búsqueda: {{ denominacion }}</h4>
+<div class="container" style="margin:10% 0 10% 5%; padding: 0 20% 0 20%;">
+    <h2 style="font-weight: bold; font-size: 40px; margin-bottom: 0;">Resultados de la búsqueda</h2>
+    <hr>
+    <h2 style="font-weight: lighter; font-size: 25px; margin-top: 0;">Código de la especie: <strong>{{ codigo }}</strong></h2>
 
     {% if dolares_encontrados %}
 
-        <table class="table table-hover">
-            <thead>
+    <table class="table table-hover" style="margin-top: 5%;">
+        <thead>
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Código</th>
                 <th scope="col">Denominación</th>
                 <th scope="col">Emisor</th>
                 <th scope="col">Fecha de vencimiento</th>
-                <th scope="col">Detalle</th>
-                <th scope="col">Editar</th>
-                <th scope="col">Borrar</th>
             </tr>
-            </thead>
-            <tbody>
+        </thead>
+        <tbody>
             {% for dolares in dolares_encontrados %}
-                <tr>
-                    <th scope="row">{{forloop.counter}}</th>
-                    <td>{{dolares.codigo}}</td>
-                    <td>{{dolares.denominacion}}</td>
-                    <td>{{dolares.emisor}}</td>
-                    <td>{{dolares.fecha_vencimiento}}</td>
-                </tr>
+            <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{dolares.codigo}}</td>
+                <td>{{dolares.denominacion}}</td>
+                <td>{{dolares.emisor}}</td>
+                <td>{{dolares.fecha_vencimiento}}</td>               
+                </td>
+            </tr>
             {% endfor %}
-            </tbody>
-        </table>
+        </tbody>
+    </table>
+    <p style="margin-top: 5%"><a href="{% url 'dolares' %}" style="text-decoration: none; color:blue; "> Ir al listado completo</a></p>
     {% else %}
-        <p>No se encontraron especies con esa denomiación</p>
+    <p>No se encontraron especies con ese código</p>
     {% endif %}
 
 </div>
 
 {% endblock %}
-
-

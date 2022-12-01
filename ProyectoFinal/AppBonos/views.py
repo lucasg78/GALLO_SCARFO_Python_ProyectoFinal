@@ -78,13 +78,13 @@ def busqueda(request):
 
 @login_required
 def buscar(request):
-    if not request.GET["denominacion"]:
+    if not request.GET["codigo"]:
         return HttpResponse("No enviaste datos")
     else:
-        denominacion_a_buscar = request.GET["denominacion"]
-        dolares = Dolar.objects.filter(denominacion=denominacion_a_buscar)
+        codigo_a_buscar = request.GET["codigo"]
+        dolares = Dolar.objects.filter(codigo=codigo_a_buscar)
 
-        contexto = {"denominacion": denominacion_a_buscar, "dolares_encontrados": dolares}
+        contexto = {"codigo": codigo_a_buscar, "dolares_encontrados": dolares}
 
         return render(request, "AppBonos/resultado_busqueda.html", contexto)
 

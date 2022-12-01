@@ -3,8 +3,8 @@
 {% load static %}
 
 {% block contenidoQueCambia %}
-<div class="container px-5 my-5">
-    <h2 class="display-4" >Ingrese especie</h2>
+<div class="container" style="margin:8% 0 5% 5%; padding: 0 20% 0 20%;">
+    <h2 style="font-weight: bold; font-size: 40px">Crear una especie</h2>
     <br>
     <form id="contactForm" action="/AppBonos/form_dolares/" method="POST">
         {% csrf_token %}
@@ -49,7 +49,7 @@
             <div class="invalid-feedback" data-sb-feedback="ley:required">Ley: is required</div>
         </div>
         <div class="d-grid">
-            <button class="btn btn-primary btn-lg enabled" id="submitButton" type="submit">Guardar</button>
+            <button class="btn btn-primary btn-lg enabled" id="submitButton" type="submit">Crear</button>
         </div>
     </form>
 </div>
