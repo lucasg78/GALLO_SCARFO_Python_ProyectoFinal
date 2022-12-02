@@ -7,12 +7,16 @@ from AppBonos.views import (
     DolarDelete,
     PesoDetail,
     PesoDelete,
+    PesobdDetail,
+    PesobdDelete,
     inicio,
     about,
     dolares,
     procesar_form_dolares,
     pesos,
     procesar_form_pesos,
+    pesosbd,
+    procesar_form_pesosbd,
     busqueda,
     buscar,
     login_request,
@@ -24,6 +28,7 @@ from AppBonos.views import (
 from AppBonos.views import (
     DolarUpdateView,
     PesoUpdateView,
+    PesobdUpdateView,
 )
 
 
@@ -42,6 +47,12 @@ urlpatterns = [
     path("editar_peso/<pk>", PesoUpdateView.as_view(), name="PesoUpdate"),
     path("detalle_peso/<pk>", PesoDetail.as_view(), name="PesoDetail"),
     path("borrar_peso/<pk>", PesoDelete.as_view(), name="PesoDelete"),
+
+    path("pesosbd/", pesosbd, name="pesosbd"),
+    path("form_pesosbd/", procesar_form_pesosbd, name="form_pesosbd"),
+    path("editar_pesobd/<pk>", PesobdUpdateView.as_view(), name="PesobdUpdate"),
+    path("detalle_pesobd/<pk>", PesobdDetail.as_view(), name="PesobdDetail"),
+    path("borrar_pesobd/<pk>", PesobdDelete.as_view(), name="PesobdDelete"),
 
     path("busqueda/", busqueda, name="busqueda"),
     path("buscar/", buscar, name="buscar"),

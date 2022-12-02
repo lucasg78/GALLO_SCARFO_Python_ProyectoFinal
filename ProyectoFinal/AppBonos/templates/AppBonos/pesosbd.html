@@ -1,0 +1,51 @@
+{% extends "AppBonos/base.html" %}
+
+{% load static %}
+
+{% block contenido %}
+
+<header class="masthead-dolar">
+    <div class="container" style="margin:10% 0 5% 5%;">
+        <h2 style="font-weight: bold; font-size: 40px">Títulos en pesos ajustados por BADLAR</h2>
+
+        {% if pesosbd_encontrados %}
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Código</th>
+                    <th scope="col">Denominación</th>
+                    <th scope="col">Emisor</th>
+                    <th scope="col">Fecha de vencimiento</th>
+                    <th scope="col">Detalle</th>
+                    <th scope="col">Editar</th>
+                    <th scope="col">Borrar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pesosbd in pesosbd_encontrados %}
+                <tr>
+                    <th scope="row">{{forloop.counter}}</th>
+                    <td>{{pesosbd.codigo}}</td>
+                    <td>{{pesosbd.denominacion}}</td>
+                    <td>{{pesosbd.emisor}}</td>
+                    <td>{{pesosbd.fecha_vencimiento}}</td>
+                    <td> <a href="{% url 'PesobdDetail' pesosbd.id %}" style="text-decoration: none; color:blue">Ver</a>
+                    </td>
+                    <td> <a href="{% url 'PesobdUpdate' pesosbd.id %}"
+                            style="text-decoration: none; color:blue">Editar</a> </td>
+                    <td> <a href="{% url 'PesobdDelete' pesosbd.id %}"
+                            style="text-decoration: none; color:blue">Borrar</a> </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No se encontraron especies cargadas en la base de datos.</p>
+        {% endif %}
+        <p><a href="{% url 'form_pesosbd' %}" style="text-decoration: none; color:blue"> Ingrese una nueva especie</a>
+        </p>
+    </div>
+</header>
+
+{% endblock %}

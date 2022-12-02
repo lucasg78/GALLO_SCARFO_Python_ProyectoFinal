@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from AppBonos.models import Dolar, Peso
+from AppBonos.models import Dolar, Peso, Pesobd
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -127,7 +127,7 @@ def procesar_form_dolares(request):
 
 
 
-# Pesos
+# Pesos (CER)
 @login_required
 def pesos(request):
     pesos = Peso.objects.all()
@@ -154,6 +154,31 @@ def procesar_form_pesos(request):
     return pesos(request)
 
 
+# Pesos (BADLAR)
+@login_required
+def pesosbd(request):
+    pesosbd = Pesobd.objects.all()
+    contexto = {"pesosbd_encontrados": pesosbd}
+    return render(request, "AppBonos/pesosbd.html", context=contexto)
+
+@login_required
+def procesar_form_pesosbd(request):
+    if request.method != "POST":
+        return render(request, "AppBonos/form_pesosbd.html")
+
+    pesobd = Pesobd(
+        codigo=request.POST["codigo"],
+        denominacion=request.POST["denominacion"],
+        emisor=request.POST["emisor"],
+        fecha_emision=request.POST["fecha_emision"],
+        fecha_vencimiento=request.POST["fecha_vencimiento"],
+        amortizacion=request.POST["amortizacion"],
+        interes=request.POST["interes"],
+        ley=request.POST["ley"],
+    )
+
+    pesobd.save()
+    return pesosbd(request)
 
 
 
@@ -195,22 +220,41 @@ class DolarDelete(LoginRequiredMixin, DeleteView):
     success_url = "/AppBonos/dolares/"
 
 
-# Pesos - Detalle
+# Pesos (CER) - Detalle
 class PesoDetail(LoginRequiredMixin, DetailView):
     model = Peso
     template_name = "AppBonos/peso_detalle.html"
 
-# Pesos - Editar
+# Pesos (CER) - Editar
 class PesoUpdateView(LoginRequiredMixin, UpdateView):
     model = Peso
     fields = ["codigo", "denominacion", "emisor", "amortizacion", "interes", "ley"]
     def get_success_url(self):
         return reverse("pesos")
 
-# Pesos - Borrar
+# Pesos (CER) - Borrar
 class PesoDelete(LoginRequiredMixin, DeleteView):
     model = Peso
-    success_url = "/AppBonos/pesos/"
+    success_url = "/AppBonos/pesosbd/"
+
+
+# Pesos (BADLAR) - Detalle
+class PesobdDetail(LoginRequiredMixin, DetailView):
+    model = Pesobd
+    template_name = "AppBonos/pesobd_detalle.html"
+
+# Pesos(BADLAR) - Editar
+class PesobdUpdateView(LoginRequiredMixin, UpdateView):
+    model = Pesobd
+    fields = ["codigo", "denominacion", "emisor", "amortizacion", "interes", "ley"]
+    def get_success_url(self):
+        return reverse("pesosbd")
+
+# Pesos (BADLAR) - Borrar
+class PesobdDelete(LoginRequiredMixin, DeleteView):
+    model = Pesobd
+    success_url = "/AppBonos/pesosbd/"
+
 
 
 # Editar Perfil
