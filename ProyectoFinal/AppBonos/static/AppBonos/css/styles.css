@@ -11351,7 +11351,11 @@ html {
   font-weight: 700;
   letter-spacing: 0.05rem;
 }
-.log{
+.log1 {
+  margin-top: 2px;
+  margin-bottom: 0.5px;
+}
+.log2 {
   margin-top: 2.8px;
 }
 .sign-up {
