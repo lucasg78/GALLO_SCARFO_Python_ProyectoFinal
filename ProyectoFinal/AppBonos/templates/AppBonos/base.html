@@ -44,7 +44,7 @@
                     <li class="nav-item"><a class="nav-link" href="{% url 'dolares' %}" style="color: rgb(220, 204, 204)">Dólares&nbsp&nbsp│</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'pesos' %}" style="color: rgb(220, 204, 204)">Pesos (CER)&nbsp&nbsp│</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'pesosbd' %}" style="color: rgb(220, 204, 204)">Pesos (BADLAR)&nbsp&nbsp│</a></li>
-                    <li class="nav-item"><a class="nav-link" href="" style="color: rgb(220, 204, 204)">Dólar-Linked&nbsp&nbsp│</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'pesosdl' %}" style="color: rgb(220, 204, 204)">Dólar-Linked&nbsp&nbsp│</a></li>
                     <li class="nav-item" style="margin-right: 30px; margin-left: 20px;"><a class="nav-link"
                             href="{% url 'busqueda' %}" style="color: rgb(132, 128, 128)">Buscar</a></li>
                     <li class="nav-item log"><a><img class="rounded-circle" src='{{ user.avatar.imagen.url }}'
@@ -114,7 +114,7 @@
         <div class="container px-5">
             <div class="row gx-5 align-items-center">
                 <div class="col-lg-6">
-                    <div class="p-5"><a href=""></a><img class="img-fluid rounded-circle"
+                    <div class="p-5"><a href="{% url 'pesos' %}"><img class="img-fluid rounded-circle"
                             src="{% static 'AppBonos/assets/img/02.webp' %}" alt="..."
                             style="width: 700px; height: 300px" /></a></div>
                 </div>
@@ -135,7 +135,7 @@
         <div class="container px-5">
             <div class="row gx-5 align-items-center">
                 <div class="col-lg-6 order-lg-2">
-                    <div class="p-5"><a href=""><img class="img-fluid rounded-circle"
+                    <div class="p-5"><a href="{% url 'pesosbd' %}"><img class="img-fluid rounded-circle"
                                 src="{% static 'AppBonos/assets/img/03.webp' %}" alt="..."
                                 style="width: 700px; height: 300px" /></a></div>
                 </div>
@@ -143,7 +143,7 @@
                     <div class="p-5">
                         <h2 style="font-size: 50px; font-weight: bold; margin-bottom: -5px;">Pesos</h2>
                         <p style="font-size: 24px">(ajustados por BADLAR)</p>
-                        <p><a href="" style="text-decoration:none; color:black;">Su capital se ajusta por la tasa de
+                        <p><a href="{% url 'pesosbd' %}" style="text-decoration:none; color:black;">Su capital se ajusta por la tasa de
                                 plazos fijos superiores a un millón de pesos. Ideal para
                                 reemplazar el plazo fijo, ya que suelen tener una tasa adicional y mayor liquidez.</a>
                         </p>
@@ -157,14 +157,14 @@
         <div class="container" style="margin-bottom: 100px;">
             <div class="row gx-5 align-items-center">
                 <div class="col-lg-6">
-                    <div class="p-5"><a href=""></a><img class="img-fluid rounded-circle"
+                    <div class="p-5"><a href="{% url 'pesosdl' %}"></a><img class="img-fluid rounded-circle"
                             src="{% static 'AppBonos/assets/img/04.webp' %}" alt="..."
                             style="width: 500px; height: 300px" /></a></div>
                 </div>
                 <div class="col-lg-6">
                     <div class="p-5">
                         <h2 style="font-size: 50px; font-weight: bold;">Dólar-Linked</h2>
-                        <p><a href="" style="text-decoration:none; color:black;">Se paga en pesos, pero vinculados a la
+                        <p><a href="{% url 'pesosdl' %}" style="text-decoration:none; color:black;">Se paga en pesos, pero vinculados a la
                                 tasa de cambio oficial del dólar. Se ajusta a la
                                 evolución del dólar desde la emisión hasta la fecha de pago, por lo que es ideal para
                                 cubrirse ante

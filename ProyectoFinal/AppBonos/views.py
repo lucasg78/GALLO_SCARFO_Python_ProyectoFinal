@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from AppBonos.models import Dolar, Peso, Pesobd
+from AppBonos.models import Dolar, Peso, Pesobd, Pesodl
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -182,6 +182,34 @@ def procesar_form_pesosbd(request):
 
 
 
+# Pesos (DL)
+@login_required
+def pesosdl(request):
+    pesosdl = Pesodl.objects.all()
+    contexto = {"pesosdl_encontrados": pesosdl}
+    return render(request, "AppBonos/pesosdl.html", context=contexto)
+
+@login_required
+def procesar_form_pesosdl(request):
+    if request.method != "POST":
+        return render(request, "AppBonos/form_pesosdl.html")
+
+    pesodl = Pesodl(
+        codigo=request.POST["codigo"],
+        denominacion=request.POST["denominacion"],
+        emisor=request.POST["emisor"],
+        fecha_emision=request.POST["fecha_emision"],
+        fecha_vencimiento=request.POST["fecha_vencimiento"],
+        amortizacion=request.POST["amortizacion"],
+        interes=request.POST["interes"],
+        ley=request.POST["ley"],
+    )
+
+    pesodl.save()
+    return pesosdl(request)
+
+
+
 # Buscar
 @login_required
 def busqueda(request):
@@ -254,6 +282,24 @@ class PesobdUpdateView(LoginRequiredMixin, UpdateView):
 class PesobdDelete(LoginRequiredMixin, DeleteView):
     model = Pesobd
     success_url = "/AppBonos/pesosbd/"
+
+
+# Pesos (DL) - Detalle
+class PesodlDetail(LoginRequiredMixin, DetailView):
+    model = Pesodl
+    template_name = "AppBonos/pesodl_detalle.html"
+
+# Pesos(DL) - Editar
+class PesodlUpdateView(LoginRequiredMixin, UpdateView):
+    model = Pesodl
+    fields = ["codigo", "denominacion", "emisor", "amortizacion", "interes", "ley"]
+    def get_success_url(self):
+        return reverse("pesosdl")
+
+# Pesos (DL) - Borrar
+class PesodlDelete(LoginRequiredMixin, DeleteView):
+    model = Pesodl
+    success_url = "/AppBonos/pesosdl/"
 
 
 
