@@ -1,11 +1,11 @@
-{% extends "AppBonos/padre.html" %}
+{% extends "AppBonos/base.html" %}
 
 {% load static %}
 
-{% block contenidoQueCambia %}
+{% block contenido %}
 
-<div class="container px-5 my-5">
-    <h5 class="display-6" >Error en inicio de sesión</h5>
+<div class="container" style="margin:8% 0 5% 5%; padding: 0 20% 0 20%;">
+    <h2 style="font-weight: bold; font-size: 40px">Error en inicio de sesión</h2>
     <br>
     {% if mensaje %}
        <p> {{ mensaje }} </p>

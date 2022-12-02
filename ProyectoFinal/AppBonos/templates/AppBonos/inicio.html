@@ -1,8 +1,8 @@
-{% extends "AppBonos/padre.html" %}
+{% extends "AppBonos/base.html" %}
 
 {% load static %}
 
-{% block contenidoQueCambia %}
+{% block contenido %}
 <!-- Header-->
 <header class="masthead text-center text-white mt-0">
     <div class="masthead-content">
@@ -51,7 +51,8 @@
                 <div class="p-5">
                     <h2 style="font-size: 50px; font-weight: bold; margin-bottom: -5px;">Pesos</h2>
                     <p style="font-size: 24px">(ajustados por CER)</p>
-                    <p><a href="" style="text-decoration:none; color:black;">Su capital se ajusta por el Índice de
+                    <p><a href="{% url 'pesos' %}" style="text-decoration:none; color:black;">Su capital se ajusta por
+                            el Índice de
                             Precios al Consumidor y los intereses son calculados
                             sobre saldos ajustados. Ideal para poder ganarle a la inflación.</a></p>
                 </div>

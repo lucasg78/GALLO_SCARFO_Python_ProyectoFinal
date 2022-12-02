@@ -18,6 +18,19 @@ class Dolar(models.Model):
         return f"{self.codigo} {self.denominacion}"
 
 
+class Peso(models.Model):
+    codigo = models.CharField(max_length=30)
+    denominacion = models.CharField(max_length=100)
+    emisor = models.CharField(max_length=30)
+    fecha_emision = models.DateField(null=True)
+    fecha_vencimiento = models.DateField(null=True)
+    amortizacion = models.CharField(max_length=500)
+    interes = models.CharField(max_length=500)
+    ley = models.CharField(max_length=30)
+
+    def __str__(self) -> str:
+        return f"{self.codigo} {self.denominacion}"
+
 
 
 

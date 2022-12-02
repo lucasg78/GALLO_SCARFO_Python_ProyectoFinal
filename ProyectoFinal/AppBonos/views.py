@@ -1,12 +1,12 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from AppBonos.models import Dolar
+from AppBonos.models import Dolar, Peso
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth import login, authenticate
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 
-# Agregado para avatar
+# Agregado para Avatar
 from django.contrib.auth.models import User
 
 from django.views.generic import (
@@ -15,7 +15,7 @@ from django.views.generic import (
 )
 
 from django.views.generic.detail import DetailView
-from django.urls import reverse_lazy, reverse
+from django.urls import reverse
 
 from AppBonos.forms import UserRegisterForm, UserEditionForm
 
@@ -24,71 +24,7 @@ from AppBonos.models import Avatar
 from AppBonos.forms import AvatarForm, UserEditionForm
 
 
-# Create your views here.
-
-def inicio(request):
-    try:
-        avatar = Avatar.objects.get(user=request.user)
-    except:
-        avatar = None
-    return render(request, "AppBonos/padre.html", {"avatar": avatar})
-
-
-@login_required
-def about(request):
-    return render(request, "AppBonos/about.html")
-
-
-@login_required
-def dolares(request):
-    dolares = Dolar.objects.all()
-    contexto = {"dolares_encontrados": dolares}
-    return render(request, "AppBonos/dolares.html", context=contexto)
-
-
-@login_required
-def formularios(request):
-    return render(request, "AppBonos/formularios.html")
-
-
-@login_required
-def procesar_form_dolares(request):
-    if request.method != "POST":
-        return render(request, "AppBonos/form_dolares.html")
-
-    dolar = Dolar(
-        codigo=request.POST["codigo"],
-        denominacion=request.POST["denominacion"],
-        emisor=request.POST["emisor"],
-        fecha_emision=request.POST["fecha_emision"],
-        fecha_vencimiento=request.POST["fecha_vencimiento"],
-        amortizacion=request.POST["amortizacion"],
-        interes=request.POST["interes"],
-        ley=request.POST["ley"],
-    )
-
-    dolar.save()
-    return dolares(request)
-
-
-@login_required
-def busqueda(request):
-    return render(request, "AppBonos/busqueda.html")
-
-
-@login_required
-def buscar(request):
-    if not request.GET["codigo"]:
-        return HttpResponse("No enviaste datos")
-    else:
-        codigo_a_buscar = request.GET["codigo"]
-        dolares = Dolar.objects.filter(codigo=codigo_a_buscar)
-
-        contexto = {"codigo": codigo_a_buscar, "dolares_encontrados": dolares}
-
-        return render(request, "AppBonos/resultado_busqueda.html", contexto)
-
-
+# Sign in
 def login_request(request):
     if request.method == "POST":
         form = AuthenticationForm(request, data=request.POST)
@@ -124,6 +60,8 @@ def login_request(request):
     return render(request, "AppBonos/login.html", {"form": form})
 
 
+
+# Sing up
 def register(request):
     if request.method == "POST":
         form = UserRegisterForm(request.POST)
@@ -144,35 +82,138 @@ def register(request):
 
 
 
-# Detail Views
+# Inicio
+def inicio(request):
+    try:
+        avatar = Avatar.objects.get(user=request.user)
+    except:
+        avatar = None
+    return render(request, "AppBonos/base.html", {"avatar": avatar})
 
+
+
+# About
+@login_required
+def about(request):
+    return render(request, "AppBonos/about.html")
+
+
+
+# Dólares
+@login_required
+def dolares(request):
+    dolares = Dolar.objects.all()
+    contexto = {"dolares_encontrados": dolares}
+    return render(request, "AppBonos/dolares.html", context=contexto)
+
+@login_required
+def procesar_form_dolares(request):
+    if request.method != "POST":
+        return render(request, "AppBonos/form_dolares.html")
+
+    dolar = Dolar(
+        codigo=request.POST["codigo"],
+        denominacion=request.POST["denominacion"],
+        emisor=request.POST["emisor"],
+        fecha_emision=request.POST["fecha_emision"],
+        fecha_vencimiento=request.POST["fecha_vencimiento"],
+        amortizacion=request.POST["amortizacion"],
+        interes=request.POST["interes"],
+        ley=request.POST["ley"],
+    )
+
+    dolar.save()
+    return dolares(request)
+
+
+
+# Pesos
+@login_required
+def pesos(request):
+    pesos = Peso.objects.all()
+    contexto = {"pesos_encontrados": pesos}
+    return render(request, "AppBonos/pesos.html", context=contexto)
+
+@login_required
+def procesar_form_pesos(request):
+    if request.method != "POST":
+        return render(request, "AppBonos/form_pesos.html")
+
+    peso = Peso(
+        codigo=request.POST["codigo"],
+        denominacion=request.POST["denominacion"],
+        emisor=request.POST["emisor"],
+        fecha_emision=request.POST["fecha_emision"],
+        fecha_vencimiento=request.POST["fecha_vencimiento"],
+        amortizacion=request.POST["amortizacion"],
+        interes=request.POST["interes"],
+        ley=request.POST["ley"],
+    )
+
+    peso.save()
+    return pesos(request)
+
+
+
+
+
+# Buscar
+@login_required
+def busqueda(request):
+    return render(request, "AppBonos/busqueda.html")
+
+@login_required
+def buscar(request):
+    if not request.GET["codigo"]:
+        return HttpResponse("No enviaste datos")
+    else:
+        codigo_a_buscar = request.GET["codigo"]
+        dolares = Dolar.objects.filter(codigo=codigo_a_buscar)
+
+        contexto = {"codigo": codigo_a_buscar, "dolares_encontrados": dolares}
+
+        return render(request, "AppBonos/resultado_busqueda.html", contexto)
+
+
+
+# Views
+# Dólares - Detalle
 class DolarDetail(LoginRequiredMixin, DetailView):
-
     model = Dolar
     template_name = "AppBonos/dolar_detalle.html"
 
-
-# Update view
-
+# Dólares - Editar
 class DolarUpdateView(LoginRequiredMixin, UpdateView):
     model = Dolar
     fields = ["codigo", "denominacion", "emisor", "amortizacion", "interes", "ley"]
-
     def get_success_url(self):
         return reverse("dolares")
 
-
-# Delete Views
-
+# Dólares - Borrar
 class DolarDelete(LoginRequiredMixin, DeleteView):
-
     model = Dolar
     success_url = "/AppBonos/dolares/"
 
 
+# Pesos - Detalle
+class PesoDetail(LoginRequiredMixin, DetailView):
+    model = Peso
+    template_name = "AppBonos/peso_detalle.html"
+
+# Pesos - Editar
+class PesoUpdateView(LoginRequiredMixin, UpdateView):
+    model = Peso
+    fields = ["codigo", "denominacion", "emisor", "amortizacion", "interes", "ley"]
+    def get_success_url(self):
+        return reverse("pesos")
+
+# Pesos - Borrar
+class PesoDelete(LoginRequiredMixin, DeleteView):
+    model = Peso
+    success_url = "/AppBonos/pesos/"
+
 
 # Editar Perfil
-
 @login_required
 def editar_perfil(request):
     user = request.user
@@ -210,7 +251,6 @@ def editar_perfil(request):
 
 
 # Avatar
-
 @login_required
 def agregar_avatar(request):
     user = request.user

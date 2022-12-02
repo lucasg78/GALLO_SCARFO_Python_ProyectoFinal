@@ -5,13 +5,16 @@ from django.contrib.auth.views import LogoutView
 from AppBonos.views import (
     DolarDetail,
     DolarDelete,
+    PesoDetail,
+    PesoDelete,
     inicio,
     about,
     dolares,
     procesar_form_dolares,
+    pesos,
+    procesar_form_pesos,
     busqueda,
     buscar,
-    formularios,
     login_request,
     register,
     editar_perfil,
@@ -20,6 +23,7 @@ from AppBonos.views import (
 
 from AppBonos.views import (
     DolarUpdateView,
+    PesoUpdateView,
 )
 
 
@@ -33,9 +37,14 @@ urlpatterns = [
     path("detalle_dolar/<pk>", DolarDetail.as_view(), name="DolarDetail"),
     path("borrar_dolar/<pk>", DolarDelete.as_view(), name="DolarDelete"),
 
+    path("pesos/", pesos, name="pesos"),
+    path("form_pesos/", procesar_form_pesos, name="form_pesos"),
+    path("editar_peso/<pk>", PesoUpdateView.as_view(), name="PesoUpdate"),
+    path("detalle_peso/<pk>", PesoDetail.as_view(), name="PesoDetail"),
+    path("borrar_peso/<pk>", PesoDelete.as_view(), name="PesoDelete"),
+
     path("busqueda/", busqueda, name="busqueda"),
     path("buscar/", buscar, name="buscar"),
-    path("formularios/", formularios, name="formularios"),
     path("login/", login_request, name="login"),
     path("logout/", LogoutView.as_view(template_name="AppBonos/logout.html"), name="logout",),
     path("registro/", register, name="registro"),

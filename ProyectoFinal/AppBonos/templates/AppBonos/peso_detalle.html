@@ -1,0 +1,28 @@
+{% extends "AppBonos/base.html" %}
+
+{% load static %}
+
+{% block contenido %}
+
+<div class="container" style="margin:7% 0 5% 5%; padding: 0 20% 0 20%;">
+    
+    <div class="card text-center">
+        <div class="card-header" style="font-size: 20px; font-weight: bold;">Detalle de la especie</div>
+        <div class="card-body">
+          <h5 class="card-title">{{peso.codigo}}</h5><hr>
+          <p class="card-text">Denominación: <br>{{peso.denominacion}}</p><hr>
+          <p class="card-text">Emisor: {{peso.emisor}}</p><hr>
+          <p class="card-text">Fecha de emisión: {{peso.fecha_emision}}</p><hr>
+          <p class="card-text">Fecha de vencimiento: {{peso.fecha_vencimiento}}</p><hr>
+          <p class="card-text">Amortización:<br>{{peso.amortizacion}}</p><hr>
+          <p class="card-text">Interés:<br>{{peso.interes}}</i></p><hr>
+          <p class="card-text">Ley: <i> {{peso.ley}}</i></p><hr>
+          <a href="{% url 'pesos' %}" class="btn btn-primary">Volver</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+                    
+
