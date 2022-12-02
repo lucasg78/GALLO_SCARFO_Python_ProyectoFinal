@@ -4,9 +4,10 @@
 
 {% block contenidoQueCambia %}
 
-<div class="container px-5 my-5">
-    <h5 class="display-6" >Editar Perfil</h5>
-    <form action="" method="POST">{% csrf_token %}
+<div class="container" style="margin:8% 0 5% 5%; padding: 0 20% 0 20%;">
+    <h2 style="font-weight: bold; font-size: 40px">Editar perfil</h2>
+    <form action="" method="POST">
+        {% csrf_token %}
         {{ form.as_p }}
         <br>
         <div class="d-grid">

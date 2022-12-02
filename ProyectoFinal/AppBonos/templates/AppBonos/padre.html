@@ -42,27 +42,27 @@
                     {% if user.is_authenticated %}
                     <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'dolares' %}">Dólares</a></li>
-                    <li class="nav-item"><a class="nav-link" href="">Pesos-CER</a></li>
-                    <li class="nav-item"><a class="nav-link" href="">Pesos-BADLAR</a></li>
+                    <li class="nav-item"><a class="nav-link" href="">Pesos (CER)</a></li>
+                    <li class="nav-item"><a class="nav-link" href="">Pesos (BADLAR)</a></li>
                     <li class="nav-item"><a class="nav-link" href="">Dólar-Linked</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'busqueda' %}">Búsqueda</a></li>
-                    <li class="nav-item"><a><img class="rounded-circle" src='{{ user.avatar.imagen.url }}'
+                    <li class="nav-item log"><a><img class="rounded-circle" src='{{ user.avatar.imagen.url }}'
                                 style="max-width: 2em; margin-right: 10px;"></img></a></li>
-                    <li class="nav-item">
+                    <li class="nav-item log">
                         <div class="dropdown">
-                            <button class="btn btn-primary dropdown-toggle" type="button"
+                            <button class="btn-login btn-primary dropdown-toggle" type="button"
                                 data-toggle="dropdown">{{user.username}}
                                 <span class="caret"></span></button>
                             <ul class="dropdown-menu">
-                                <li class="nav-item"><a href="{% url 'EditarPerfil' %}">Editar Perfil</a></li>
+                                <li class="" style="font-size: 8x; "><a href="{% url 'EditarPerfil' %}">Editar Perfil</a></li>
                                 <li class="nav-item"><a href="{% url 'AgregarAvatar' %}">Modificar Avatar</a></li>
                                 <li class="nav-item"><a href="{% url 'logout' %}">Log Out</a></li>
                             </ul>
                         </div>
                     </li>
                     {% else %}
-                    <li class="nav-item"><a class="nav-link" href="{% url 'registro' %}">Sign Up</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">│&nbsp&nbsp&nbsp Sign In</a></li>
+                    <li class="nav-item"><a class="nav-link" style="margin-right: 0;" href="{% url 'registro' %}">Sign Up</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">│&nbsp&nbsp&nbsp&nbsp Sign In</a></li>
                     {% endif %}
                 </ul>
             </div>
@@ -87,15 +87,15 @@
             <div class="row gx-5 align-items-center">
                 <div class="col-lg-6 order-lg-2">
                     <div class="p-5"><a href="{% url 'dolares' %}"><img class="img-fluid rounded-circle"
-                                src="{% static 'AppBonos/assets/img/04.webp' %}" alt="..."
-                                style="width: 300px; height: 300px" /></a></div>
+                                src="{% static 'AppBonos/assets/img/01.webp' %}" alt="..."
+                                style="width: 700px; height: 300px" /></a></div>
                 </div>
                 <div class="col-lg-6 order-lg-1">
                     <div class="p-5">
-                        <h2 class="display-4" style="font-weight: bold">En dólares</h2>
-                        <p><a href="{% url 'dolares' %}" style="text-decoration:none; color:black;">Brindan protección
-                                ante escenarios de devaluación y ofrecen elevados rendimientos en moneda dura. También
-                                operan en pesos pero pagan renta y capital en dólares.</a></p>
+                        <h2 style="font-size: 50px; font-weight: bold">Dólares</h2>
+                        <p><a href="{% url 'dolares' %}" style="text-decoration:none; color:black;">Brinda protección
+                                ante escenarios de devaluación y ofrece elevados rendimientos en moneda dura. También
+                                opera en pesos pero paga renta y capital en dólares.</a></p>
                     </div>
                 </div>
             </div>
@@ -107,14 +107,16 @@
             <div class="row gx-5 align-items-center">
                 <div class="col-lg-6">
                     <div class="p-5"><a href=""></a><img class="img-fluid rounded-circle"
-                            src="{% static 'AppBonos/assets/img/02.jpg' %}" alt="..." /></a></div>
+                            src="{% static 'AppBonos/assets/img/02.webp' %}" alt="..."
+                            style="width: 700px; height: 300px" /></a></div>
                 </div>
                 <div class="col-lg-6">
                     <div class="p-5">
-                        <h2 class="display-4">En pesos (ajustados por CER)</h2>
-                        <p>Su capital se ajusta por el Índice de Precios al Consumidor y los intereses son calculados
-                            sobre saldos ajustados. Ideal para poder ganarle a la inflación.<a
-                                href=""> Leer más.</a></p>
+                        <h2 style="font-size: 50px; font-weight: bold; margin-bottom: -5px;">Pesos</h2>
+                        <p style="font-size: 24px">(ajustados por CER)</p>
+                        <p><a href="" style="text-decoration:none; color:black;">Su capital se ajusta por el Índice de
+                                Precios al Consumidor y los intereses son calculados
+                                sobre saldos ajustados. Ideal para poder ganarle a la inflación.</a></p>
                     </div>
                 </div>
             </div>
@@ -126,14 +128,17 @@
             <div class="row gx-5 align-items-center">
                 <div class="col-lg-6 order-lg-2">
                     <div class="p-5"><a href=""><img class="img-fluid rounded-circle"
-                                src="{% static 'AppBonos/assets/img/03.jpg' %}" alt="..." /></a></div>
+                                src="{% static 'AppBonos/assets/img/03.webp' %}" alt="..."
+                                style="width: 700px; height: 300px" /></a></div>
                 </div>
                 <div class="col-lg-6 order-lg-1">
                     <div class="p-5">
-                        <h2 class="display-4">En pesos (ajustados por Tasa BADLAR)</h2>
-                        <p>Su capital se ajusta por la tasa de plazos fijos superiores a un millón de pesos. Ideal para
-                            reemplazar el plazo fijo, ya que suelen tener una tasa adicional y mayor liquidez.<a
-                                href=""> Leer más.</a></p>
+                        <h2 style="font-size: 50px; font-weight: bold; margin-bottom: -5px;">Pesos</h2>
+                        <p style="font-size: 24px">(ajustados por BADLAR)</p>
+                        <p><a href="" style="text-decoration:none; color:black;">Su capital se ajusta por la tasa de
+                                plazos fijos superiores a un millón de pesos. Ideal para
+                                reemplazar el plazo fijo, ya que suelen tener una tasa adicional y mayor liquidez.</a>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -141,18 +146,21 @@
     </section>
     <!-- Content section 4-->
     <section>
-        <div class="container px-5">
+        <div class="container" style="margin-bottom: 100px;">
             <div class="row gx-5 align-items-center">
                 <div class="col-lg-6">
                     <div class="p-5"><a href=""></a><img class="img-fluid rounded-circle"
-                            src="{% static 'AppBonos/assets/img/04.jpg' %}" alt="..." /></a></div>
+                            src="{% static 'AppBonos/assets/img/04.webp' %}" alt="..."
+                            style="width: 500px; height: 300px" /></a></div>
                 </div>
                 <div class="col-lg-6">
                     <div class="p-5">
-                        <h2 class="display-4">Bonos Dólar-Linked.</h2>
-                        <p>Se pagan en pesos, pero vinculados a la tasa de cambio oficial del dólar. Se ajusta a la
-                            evolución del dólar desde la emisión hasta la fecha de pago. Ideal para cubrirse ante
-                            fluctuaciones del tipo de cambio.<a href=""> Leer más.</a></p>
+                        <h2 style="font-size: 50px; font-weight: bold;">Dólar-Linked</h2>
+                        <p><a href="" style="text-decoration:none; color:black;">Se paga en pesos, pero vinculados a la
+                                tasa de cambio oficial del dólar. Se ajusta a la
+                                evolución del dólar desde la emisión hasta la fecha de pago, por lo que es ideal para
+                                cubrirse ante
+                                fluctuaciones del tipo de cambio.</a></p>
                     </div>
                 </div>
             </div>
@@ -161,9 +169,9 @@
     {% endblock %}
 
     <!-- Footer-->
-    <footer class="py-5 bg-black">
+    <footer class="bg-black">
         <div class="container px-5">
-            <p class="m-0 text-center text-white small">Copyright &copy; Lucas Gallo 2022</p>
+            <p class="m-0 text-center text-white small">Copyright &copy; Gallo+Scarfó 2022</p>
         </div>
     </footer>
     <!-- Bootstrap core JS-->

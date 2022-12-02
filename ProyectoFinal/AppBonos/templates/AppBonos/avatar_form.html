@@ -4,14 +4,14 @@
 
 {% block contenidoQueCambia %}
 
-<div class="container px-5 my-5">
-    <h5 class="display-6" >Cargar Avatar</h5>
+<div class="container" style="margin:8% 0 5% 5%; padding: 0 20% 0 20%;">
+    <h2 style="font-weight: bold; font-size: 40px">Cargar Avatar</h2>
     <br>
     <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
         <div class="d-grid">
-            <button class="btn btn-primary btn-lg enabled" id="submitButton" type="submit">Actualizar</button>
+            <button class="btn btn-primary btn-lg enabled" id="submitButton" type="submit">Cargar</button>
         </div>
     </form>
 

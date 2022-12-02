@@ -3,17 +3,16 @@
 {% load static %}
 
 {% block contenidoQueCambia %}
-    <!-- Header-->
-    <header class="masthead text-center text-white mt-0">
-        <div class="masthead-content">
-            <div class="container px-5">
-                <h1 class="masthead-heading mb-0">Invertí en Renta Fija</h1>
-                <h4 class="masthead-subheading mb-0">Financiá la deuda de una entidad pública o privada <br>para cobrar
-                    una renta fija en un plazo de tiempo</h4>
-            </div>
+<!-- Header-->
+<header class="masthead text-center text-white mt-0">
+    <div class="masthead-content">
+        <div class="container px-5">
+            <h1 class="masthead-heading mb-0">Invertí en Renta Fija</h1>
+            <h4 class="masthead-subheading mb-0">Financiá la deuda de una entidad pública o privada <br>para cobrar
+                una renta fija en un plazo de tiempo</h4>
         </div>
-    </header>
-
+    </div>
+</header>
 
 <!-- Content section 1-->
 <section id="scroll">
@@ -21,15 +20,15 @@
         <div class="row gx-5 align-items-center">
             <div class="col-lg-6 order-lg-2">
                 <div class="p-5"><a href="{% url 'dolares' %}"><img class="img-fluid rounded-circle"
-                            src="{% static 'AppBonos/assets/img/04.webp' %}" alt="..."
-                            style="width: 300px; height: 300px" /></a></div>
+                            src="{% static 'AppBonos/assets/img/01.webp' %}" alt="..."
+                            style="width: 700px; height: 300px" /></a></div>
             </div>
             <div class="col-lg-6 order-lg-1">
                 <div class="p-5">
-                    <h2 class="display-4" style="font-weight: bold">En dólares</h2>
-                    <p><a href="{% url 'dolares' %}" style="text-decoration:none; color:black;">Brindan protección
-                            ante escenarios de devaluación y ofrecen elevados rendimientos en moneda dura. También
-                            operan en pesos pero pagan renta y capital en dólares.</a></p>
+                    <h2 style="font-size: 50px; font-weight: bold">Dólares</h2>
+                    <p><a href="{% url 'dolares' %}" style="text-decoration:none; color:black;">Brinda protección
+                            ante escenarios de devaluación y ofrece elevados rendimientos en moneda dura. También
+                            opera en pesos pero paga renta y capital en dólares.</a></p>
                 </div>
             </div>
         </div>
@@ -41,14 +40,16 @@
         <div class="row gx-5 align-items-center">
             <div class="col-lg-6">
                 <div class="p-5"><a href=""></a><img class="img-fluid rounded-circle"
-                        src="{% static 'AppBonos/assets/img/02.jpg' %}" alt="..." /></a></div>
+                        src="{% static 'AppBonos/assets/img/02.webp' %}" alt="..."
+                        style="width: 700px; height: 300px" /></a></div>
             </div>
             <div class="col-lg-6">
                 <div class="p-5">
-                    <h2 class="display-4">En pesos (ajustados por CER)</h2>
-                    <p>Su capital se ajusta por el Índice de Precios al Consumidor y los intereses son calculados
-                        sobre saldos ajustados. Ideal para poder ganarle a la inflación.<a
-                            href=""> Leer más.</a></p>
+                    <h2 style="font-size: 50px; font-weight: bold; margin-bottom: -5px;">Pesos</h2>
+                    <p style="font-size: 24px">(ajustados por CER)</p>
+                    <p><a href="" style="text-decoration:none; color:black;">Su capital se ajusta por el Índice de
+                            Precios al Consumidor y los intereses son calculados
+                            sobre saldos ajustados. Ideal para poder ganarle a la inflación.</a></p>
                 </div>
             </div>
         </div>
@@ -60,14 +61,17 @@
         <div class="row gx-5 align-items-center">
             <div class="col-lg-6 order-lg-2">
                 <div class="p-5"><a href=""><img class="img-fluid rounded-circle"
-                            src="{% static 'AppBonos/assets/img/03.jpg' %}" alt="..." /></a></div>
+                            src="{% static 'AppBonos/assets/img/03.webp' %}" alt="..."
+                            style="width: 700px; height: 300px" /></a></div>
             </div>
             <div class="col-lg-6 order-lg-1">
                 <div class="p-5">
-                    <h2 class="display-4">En pesos (ajustados por Tasa BADLAR)</h2>
-                    <p>Su capital se ajusta por la tasa de plazos fijos superiores a un millón de pesos. Ideal para
-                        reemplazar el plazo fijo, ya que suelen tener una tasa adicional y mayor liquidez.<a
-                            href=""> Leer más.</a></p>
+                    <h2 style="font-size: 50px; font-weight: bold; margin-bottom: -5px;">Pesos</h2>
+                    <p style="font-size: 24px">(ajustados por BADLAR)</p>
+                    <p><a href="" style="text-decoration:none; color:black;">Su capital se ajusta por la tasa de
+                            plazos fijos superiores a un millón de pesos. Ideal para
+                            reemplazar el plazo fijo, ya que suelen tener una tasa adicional y mayor liquidez.</a>
+                    </p>
                 </div>
             </div>
         </div>
@@ -79,18 +83,20 @@
         <div class="row gx-5 align-items-center">
             <div class="col-lg-6">
                 <div class="p-5"><a href=""></a><img class="img-fluid rounded-circle"
-                        src="{% static 'AppBonos/assets/img/04.jpg' %}" alt="..." /></a></div>
+                        src="{% static 'AppBonos/assets/img/04.webp' %}" alt="..."
+                        style="width: 500px; height: 300px" /></a></div>
             </div>
             <div class="col-lg-6">
                 <div class="p-5">
-                    <h2 class="display-4">Bonos Dólar-Linked.</h2>
-                    <p>Se pagan en pesos, pero vinculados a la tasa de cambio oficial del dólar. Se ajusta a la
-                        evolución del dólar desde la emisión hasta la fecha de pago. Ideal para cubrirse ante
-                        fluctuaciones del tipo de cambio.<a href=""> Leer más.</a></p>
+                    <h2 style="font-size: 50px; font-weight: bold;">Dólar-Linked</h2>
+                    <p><a href="" style="text-decoration:none; color:black;">Se paga en pesos, pero vinculados a la
+                            tasa de cambio oficial del dólar. Se ajusta a la
+                            evolución del dólar desde la emisión hasta la fecha de pago, por lo que es ideal para
+                            cubrirse ante
+                            fluctuaciones del tipo de cambio.</a></p>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
 {% endblock %}
