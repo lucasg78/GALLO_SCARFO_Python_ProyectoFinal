@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Inversiones</title>
+    <title>Inicio | Invertí en Renta Fija</title>
     <link rel="icon" type="image/x-icon" href="{% static 'AppBonos/assets/favicon.ico' %}" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
@@ -40,29 +40,33 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
                     {% if user.is_authenticated %}
-                    <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'dolares' %}">Dólares</a></li>
-                    <li class="nav-item"><a class="nav-link" href="">Pesos (CER)</a></li>
-                    <li class="nav-item"><a class="nav-link" href="">Pesos (BADLAR)</a></li>
-                    <li class="nav-item"><a class="nav-link" href="">Dólar-Linked</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'busqueda' %}">Búsqueda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'about' %}" style="color: rgb(220, 204, 204);">About&nbsp&nbsp│</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'dolares' %}" style="color: rgb(220, 204, 204)">Dólares&nbsp&nbsp│</a></li>
+                    <li class="nav-item"><a class="nav-link" href="" style="color: rgb(220, 204, 204)">Pesos (CER)&nbsp&nbsp│</a></li>
+                    <li class="nav-item"><a class="nav-link" href="" style="color: rgb(220, 204, 204)">Pesos (BADLAR)&nbsp&nbsp│</a></li>
+                    <li class="nav-item"><a class="nav-link" href="" style="color: rgb(220, 204, 204)">Dólar-Linked&nbsp&nbsp│</a></li>
+                    <li class="nav-item" style="margin-right: 30px; margin-left: 20px;"><a class="nav-link"
+                            href="{% url 'busqueda' %}" style="color: rgb(132, 128, 128)">Buscar</a></li>
                     <li class="nav-item log"><a><img class="rounded-circle" src='{{ user.avatar.imagen.url }}'
                                 style="max-width: 2em; margin-right: 10px;"></img></a></li>
                     <li class="nav-item log">
                         <div class="dropdown">
                             <button class="btn-login btn-primary dropdown-toggle" type="button"
-                                data-toggle="dropdown">{{user.username}}
+                                data-toggle="dropdown">{{user.username.upper}}
                                 <span class="caret"></span></button>
                             <ul class="dropdown-menu">
-                                <li class="" style="font-size: 8x; "><a href="{% url 'EditarPerfil' %}">Editar Perfil</a></li>
+                                <li class="" style="font-size: 8x; "><a href="{% url 'EditarPerfil' %}">Editar
+                                        Perfil</a></li>
                                 <li class="nav-item"><a href="{% url 'AgregarAvatar' %}">Modificar Avatar</a></li>
                                 <li class="nav-item"><a href="{% url 'logout' %}">Log Out</a></li>
                             </ul>
                         </div>
                     </li>
                     {% else %}
-                    <li class="nav-item"><a class="nav-link" style="margin-right: 0;" href="{% url 'registro' %}">Sign Up</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">│&nbsp&nbsp&nbsp&nbsp Sign In</a></li>
+                    <li class="nav-item"><a class="nav-link" style="margin-right: 0;" href="{% url 'registro' %}">Sign
+                            Up</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">│&nbsp&nbsp&nbsp&nbsp Sign In</a>
+                    </li>
                     {% endif %}
                 </ul>
             </div>
@@ -73,16 +77,20 @@
     <!-- Header-->
     <header class="masthead text-center text-white mt-0">
         <div class="masthead-content">
-            <div class="container px-5">
-                <h1 class="masthead-heading mb-0">Invertí en Renta Fija</h1>
-                <h4 class="masthead-subheading mb-0">Financiá la deuda de una entidad pública o privada <br>para cobrar
-                    una renta fija en un plazo de tiempo</h4>
+            <div class="container px-3">
+                <h1 class="masthead-heading mb-0" style="color: black; font-size: 80px;">Invertí en Renta Fija</h1>
+                <h4 class="masthead-subheading mb-0" style="color: black; font-size: 30px;">
+                    Financiá la deuda de una entidad pública o privada</h4>
+                <h4 class="masthead-subheading mb-0" style="color: black; font-size: 30px;">
+                    y <strong
+                        style="color: #2d0058; text-decoration-line: underline; text-decoration-thickness: 0.4rem; text-underline-offset: 8px;">cobrá
+                        una renta fija</strong> durante un plazo de tiempo</h4>
             </div>
         </div>
     </header>
 
     <!-- Content section 1-->
-    <section id="scroll">
+    <section id="scroll" style="background-color: #f4e3fa;">
         <div class="container px-5">
             <div class="row gx-5 align-items-center">
                 <div class="col-lg-6 order-lg-2">
@@ -102,7 +110,7 @@
         </div>
     </section>
     <!-- Content section 2-->
-    <section>
+    <section id="scroll" style="background-color: #f4e3fa;">
         <div class="container px-5">
             <div class="row gx-5 align-items-center">
                 <div class="col-lg-6">
@@ -123,7 +131,7 @@
         </div>
     </section>
     <!-- Content section 3-->
-    <section>
+    <section id="scroll" style="background-color: #f4e3fa;">
         <div class="container px-5">
             <div class="row gx-5 align-items-center">
                 <div class="col-lg-6 order-lg-2">
@@ -145,7 +153,7 @@
         </div>
     </section>
     <!-- Content section 4-->
-    <section>
+    <section id="scroll" style="background-color: #f4e3fa;">
         <div class="container" style="margin-bottom: 100px;">
             <div class="row gx-5 align-items-center">
                 <div class="col-lg-6">
