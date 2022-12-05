@@ -228,6 +228,32 @@ def buscar(request):
         return render(request, "AppBonos/resultado_busqueda.html", contexto)
 
 
+@login_required
+def buscar(request):
+    if not request.GET["codigo"]:
+        return HttpResponse("No enviaste datos")
+    else:
+        codigo_a_buscar = request.GET["codigo"]
+        pesosbd = Pesobd.objects.filter(codigo=codigo_a_buscar)
+
+        contexto = {"codigo": codigo_a_buscar, "pesosbd_encontrados": pesosbd}
+
+        return render(request, "AppBonos/resultado_busqueda.html", contexto)
+
+
+@login_required
+def buscar(request):
+    if not request.GET["codigo"]:
+        return HttpResponse("No enviaste datos")
+    else:
+        codigo_a_buscar = request.GET["codigo"]
+        pesosdl = Pesodl.objects.filter(codigo=codigo_a_buscar)
+
+        contexto = {"codigo": codigo_a_buscar, "pesosdl_encontrados": pesosdl}
+
+        return render(request, "AppBonos/resultado_busqueda.html", contexto)
+
+
 
 # Views
 # Dólares - Detalle

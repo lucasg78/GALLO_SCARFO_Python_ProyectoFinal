@@ -48,10 +48,10 @@
                     <li class="nav-item" style="margin-right: 30px; margin-left: 20px;"><a class="nav-link"
                             href="{% url 'busqueda' %}" style="color: rgb(132, 128, 128)">Buscar</a></li>
                     <li class="nav-item log1"><a><img class="rounded-circle" src='{{ user.avatar.imagen.url }}'
-                                style="max-width: 2em; max-height: 1.9em; margin-right: 10px;"></img></a></li>
+                                style="max-width: 2em; max-height: 2.5em; margin-right: 10px; margin-top:2px;"></img></a></li>
                     <li class="nav-item log2">
-                        <div class="dropdown">
-                            <button class="btn-login btn-primary dropdown-toggle" type="button"
+                        <div class="dropdown" style="width: 100px;">
+                            <button class="btn-login btn-primary dropdown-toggle" style="width: 100px; height: 37px; margin-left: 10px; margin-top: -1px;" type="button"
                                 data-toggle="dropdown">{{user.username.upper}}
                                 <span class="caret"></span></button>
                             <ul class="dropdown-menu">
