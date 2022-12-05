@@ -92,105 +92,13 @@
     <header class="masthead text-center text-white mt-0">
         <div class="masthead-content">
             <div class="container px-3">
-                <h1 class="masthead-heading mb-0" style="color: black; font-size: 80px;">Invertí en Renta Fija</h1>
-                <h4 class="masthead-subheading mb-0" style="color: black; font-size: 30px;">
-                    Financiá la deuda de una entidad pública o privada</h4>
-                <h4 class="masthead-subheading mb-0" style="color: black; font-size: 30px;">
-                    y <strong
-                        style="color: #2d0058; text-decoration-line: underline; text-decoration-thickness: 0.4rem; text-underline-offset: 8px;">cobrá
-                        una renta fija</strong> durante un plazo de tiempo</h4>
+                <h1 class="masthead-heading mb-0" style="color: black; font-size: 80px;"
+                        href="{% url 'form_mensajes' %}">Dejá tu mensaje</h1>
+                        <h1><a class="masthead-heading mb-0" style="color: #2d0058; font-size: 40px; text-decoration-line: underline; text-decoration-thickness: 0.4rem;"
+                            href="{% url 'form_mensajes' %}">acá</a></h1>
             </div>
         </div>
     </header>
-
-    <!-- Content section 1-->
-    <section id="scroll" style="background-color: #f4e3fa;">
-        <div class="container px-5">
-            <div class="row gx-5 align-items-center">
-                <div class="col-lg-6 order-lg-2">
-                    <div class="p-5"><a href="{% url 'dolares' %}"><img class="img-fluid rounded-circle"
-                                src="{% static 'AppBonos/assets/img/01.webp' %}" alt="..."
-                                style="width: 700px; height: 300px" /></a></div>
-                </div>
-                <div class="col-lg-6 order-lg-1">
-                    <div class="p-5">
-                        <h2 style="font-size: 50px; font-weight: bold">Dólares</h2>
-                        <p><a href="{% url 'dolares' %}" style="text-decoration:none; color:black;">Brinda protección
-                                ante escenarios de devaluación y ofrece elevados rendimientos en moneda dura. También
-                                opera en pesos pero paga renta y capital en dólares.</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Content section 2-->
-    <section id="scroll" style="background-color: #f4e3fa;">
-        <div class="container px-5">
-            <div class="row gx-5 align-items-center">
-                <div class="col-lg-6">
-                    <div class="p-5"><a href="{% url 'pesos' %}"><img class="img-fluid rounded-circle"
-                                src="{% static 'AppBonos/assets/img/02.webp' %}" alt="..."
-                                style="width: 700px; height: 300px" /></a></div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="p-5">
-                        <h2 style="font-size: 50px; font-weight: bold; margin-bottom: -5px;">Pesos</h2>
-                        <p style="font-size: 24px">(ajustados por CER)</p>
-                        <p><a href="{% url 'pesos' %}" style="text-decoration:none; color:black;">Su capital se ajusta
-                                por el Índice de
-                                Precios al Consumidor y los intereses son calculados
-                                sobre saldos ajustados. Ideal para poder ganarle a la inflación.</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Content section 3-->
-    <section id="scroll" style="background-color: #f4e3fa;">
-        <div class="container px-5">
-            <div class="row gx-5 align-items-center">
-                <div class="col-lg-6 order-lg-2">
-                    <div class="p-5"><a href="{% url 'pesosbd' %}"><img class="img-fluid rounded-circle"
-                                src="{% static 'AppBonos/assets/img/03.webp' %}" alt="..."
-                                style="width: 700px; height: 300px" /></a></div>
-                </div>
-                <div class="col-lg-6 order-lg-1">
-                    <div class="p-5">
-                        <h2 style="font-size: 50px; font-weight: bold; margin-bottom: -5px;">Pesos</h2>
-                        <p style="font-size: 24px">(ajustados por BADLAR)</p>
-                        <p><a href="{% url 'pesosbd' %}" style="text-decoration:none; color:black;">Su capital se ajusta
-                                por la tasa de
-                                plazos fijos superiores a un millón de pesos. Ideal para
-                                reemplazar el plazo fijo, ya que suelen tener una tasa adicional y mayor liquidez.</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Content section 4-->
-    <section id="scroll" style="background-color: #f4e3fa;">
-        <div class="container" style="margin-bottom: 100px;">
-            <div class="row gx-5 align-items-center">
-                <div class="col-lg-6">
-                    <div class="p-5"><a href="{% url 'pesosdl' %}"></a><img class="img-fluid rounded-circle"
-                            src="{% static 'AppBonos/assets/img/04.webp' %}" alt="..."
-                            style="width: 500px; height: 300px" /></a></div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="p-5">
-                        <h2 style="font-size: 50px; font-weight: bold;">Dólar-Linked</h2>
-                        <p><a href="{% url 'pesosdl' %}" style="text-decoration:none; color:black;">Se paga en pesos,
-                                pero vinculados a la
-                                tasa de cambio oficial del dólar. Se ajusta a la
-                                evolución del dólar desde la emisión hasta la fecha de pago, por lo que es ideal para
-                                cubrirse ante
-                                fluctuaciones del tipo de cambio.</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
     {% endblock %}
 
     <!-- Footer-->
@@ -202,7 +110,8 @@
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
-    <script src="{% static 'AppBonos/js/scripts.js' %}"></script>
+    <script src="{% static 'AppBlog/js/scripts.js' %}"></script>
+
 </body>
 
 </html>

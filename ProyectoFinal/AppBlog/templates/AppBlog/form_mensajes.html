@@ -1,0 +1,34 @@
+{% extends "AppBlog/base.html" %}
+
+{% load static %}
+
+{% block contenido %}
+
+<div class="container" style="margin:11% 0 5% 5%; padding: 0 20% 0 20%; margin-bottom: 15%;">
+    <h2 style="font-weight: bold; font-size: 40px">Postear un mensaje</h2>
+    <br>
+    <form id="contactForm" action="/AppBlog/form_mensajes/" method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label class="form-label" for="nombre">Nombre</label>
+            <input class="form-control" name="nombre" name="nombre" type="text" placeholder=""
+                data-sb-validations="required" />
+            <div class="invalid-feedback" data-sb-feedback="nombre:required">Nombre: is required</div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="email">E-mail</label>
+            <input class="form-control" name="email" type="email" placeholder="" data-sb-validations="required" />
+            <div class="invalid-feedback" data-sb-feedback="email:required">E-mail: is required</div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="mensaje">Mensaje</label>
+            <input class="form-control" name="mensaje" type="text" placeholder="" data-sb-validations="required" />
+            <div class="invalid-feedback" data-sb-feedback="mensaje:required">Mensaje: is required</div>
+            <div class="d-grid">
+                <button class="btn btn-primary btn-lg enabled" id="submitButton" type="submit">Crear</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

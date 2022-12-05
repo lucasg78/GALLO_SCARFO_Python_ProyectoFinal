@@ -5,12 +5,16 @@ from django.contrib.auth.views import LogoutView
 from AppBonos.views import (
     DolarDetail,
     DolarDelete,
+    DolarUpdateView,
     PesoDetail,
     PesoDelete,
+    PesoUpdateView,
     PesobdDetail,
     PesobdDelete,
+    PesobdUpdateView,
     PesodlDetail,
     PesodlDelete,    
+    PesodlUpdateView,    
     inicio,
     about,
     dolares,
@@ -27,13 +31,6 @@ from AppBonos.views import (
     register,
     editar_perfil,
     agregar_avatar,
-)
-
-from AppBonos.views import (
-    DolarUpdateView,
-    PesoUpdateView,
-    PesobdUpdateView,
-    PesodlUpdateView,    
 )
 
 

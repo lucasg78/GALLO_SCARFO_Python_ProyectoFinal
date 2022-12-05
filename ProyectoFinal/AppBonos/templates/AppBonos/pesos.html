@@ -32,10 +32,10 @@
                     <td>{{pesos.fecha_vencimiento}}</td>
                     <td> <a href="{% url 'PesoDetail' pesos.id %}" style="text-decoration: none; color:blue">Ver</a>
                     </td>
-                    <td> <a href="{% url 'PesoUpdate' pesos.id %}"
-                            style="text-decoration: none; color:blue">Editar</a> </td>
-                    <td> <a href="{% url 'PesoDelete' pesos.id %}"
-                            style="text-decoration: none; color:blue">Borrar</a> </td>
+                    <td> <a href="{% url 'PesoUpdate' pesos.id %}" style="text-decoration: none; color:blue">Editar</a>
+                    </td>
+                    <td> <a href="{% url 'PesoDelete' pesos.id %}" style="text-decoration: none; color:blue">Borrar</a>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -46,6 +46,8 @@
         <p><a href="{% url 'form_pesos' %}" style="text-decoration: none; color:blue"> Ingrese una nueva especie</a>
         </p>
     </div>
+</header>
+
 </header>
 
 {% endblock %}
