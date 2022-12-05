@@ -4,10 +4,10 @@
 
 {% block contenido %}
 
-<div class="container" style="margin:8% 0 15% 5%; padding: 0 20% 0 20%;">
+<div class="container" style="margin:8% 0 15% 5%; padding: 0 20% 0 20%; width: auto;">
     <h2 style="font-weight: bold; font-size: 40px">Registre usuario y contraseña</h2>
     <br>
-    <form action="" method="POST"> 
+    <form action="" method="POST" style="width: 400px;"> 
         {% csrf_token %}
         {{form.as_p}}
         <div class="d-grid">
