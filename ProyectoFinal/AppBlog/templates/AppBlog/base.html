@@ -50,13 +50,13 @@
                             style="color: rgb(220, 204, 204)">Pesos (BADLAR)&nbsp&nbsp</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'pesosdl' %}"
                             style="color: rgb(220, 204, 204)">Dólar-Linked&nbsp&nbsp</a></li>
-                    <li class="nav-item" style="margin-right: 10px; margin-left: 20px;"><a class="nav-link"
-                            href="{% url 'blog' %}"
-                            style="width: 90px; text-align: center; color: white; background-color: rgb(132, 128, 128); border-color: rgb(132, 128, 128);border-style:solid; border-radius: 5px; border-width: 1.5px;">Blog</a>
-                    </li>
-                    <li class="nav-item" style="margin-right: 30px; margin-left: 20px;"><a class="nav-link"
+                    <li class="nav-item" style="margin-right: 10px; margin-left: 10px;"><a class="nav-link"
                             href="{% url 'busqueda' %}"
                             style="width: 90px; text-align: center; color: rgb(132, 128, 128); border-style:solid; border-radius: 5px; border-width: 1.5px;">Buscar</a>
+                    </li>
+                    <li class="nav-item" style="margin-right: 30px; margin-left: 20px;"><a class="nav-link"
+                            href="{% url 'blog' %}"
+                            style="width: 90px; text-align: center; color: white; background-color: none; border-color: white;border-style:solid; border-radius: 5px; border-width: 1.5px;">Blog</a>
                     </li>
                     <li class="nav-item log1"><a><img class="rounded-circle" src='{{ user.avatar.imagen.url }}'
                                 style="max-width: 2em; max-height: 2.5em; margin-right: 10px; margin-top:2px;"></img></a>
@@ -93,9 +93,10 @@
         <div class="masthead-content">
             <div class="container px-3">
                 <h1 class="masthead-heading mb-0" style="color: black; font-size: 80px;"
-                        href="{% url 'form_mensajes' %}">Dejá tu mensaje</h1>
-                        <h1><a class="masthead-heading mb-0" style="color: #2d0058; font-size: 40px; text-decoration-line: underline; text-decoration-thickness: 0.4rem;"
-                            href="{% url 'form_mensajes' %}">acá</a></h1>
+                    href="{% url 'form_mensajes' %}">Dejá tu mensaje</h1>
+                <h1><a class="masthead-heading mb-0"
+                        style="color: #2d0058; font-size: 40px; text-decoration-line: underline; text-decoration-thickness: 0.4rem;"
+                        href="{% url 'form_mensajes' %}">acá</a></h1>
             </div>
         </div>
     </header>
