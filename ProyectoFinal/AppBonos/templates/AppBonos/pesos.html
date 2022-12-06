@@ -5,8 +5,17 @@
 {% block contenido %}
 
 <header class="masthead-dolar">
-    <div class="container" style="margin:10% 0 5% 5%;">
-        <h2 style="font-weight: bold; font-size: 40px">Títulos en pesos ajustados por CER</h2>
+    <div class="container" style="margin:10% 0 5% 5%; width: 80%;">
+        <h2 style="font-weight: bold; font-size: 40px;">Títulos en pesos ajustados por CER</h2>
+        <div style="background-color:rgb(227, 224, 220); border-radius: 5px; padding: 10px; text-align:start;">
+            <h3 style="font-weight: normal; font-size: 16px; padding-left: 10px; margin-bottom: 0;">Son títulos públicos
+                que ajustan el capital siguiendo un indicador denominado Coeficiente de Estabilización de
+                Referencia (CER), cuyo objetivo es reflejar la inflación minorista, computada a partir
+                de la tasa de variación promedio-diario del Índice de Precios al Consumidor (IPC) correspondiente al mes
+                previo. <strong>Representan una excelente opción para que tus pesos no pierdan poder
+                adquisitivo.</strong></h3>
+        </div>
+        <hr>
 
         {% if pesos_encontrados %}
         <table class="table table-hover">

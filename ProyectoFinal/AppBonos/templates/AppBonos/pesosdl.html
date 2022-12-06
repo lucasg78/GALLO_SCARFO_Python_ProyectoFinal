@@ -5,8 +5,15 @@
 {% block contenido %}
 
 <header class="masthead-dolar">
-    <div class="container" style="margin:10% 0 5% 5%;">
-        <h2 style="font-weight: bold; font-size: 40px">Títulos en pesos ajustados al tipo de cambio</h2>
+    <div class="container" style="margin:10% 0 5% 5%; width: 80%;">
+        <h2 style="font-weight: bold; font-size: 40px;">Títulos en pesos ajustados al tipo de cambio</h2>
+        <div style="background-color:rgb(227, 224, 220); border-radius: 5px; padding: 10px; text-align:start;">
+            <h3 style="font-weight: normal; font-size: 16px; padding-left: 10px; margin-bottom: 0;">Son títulos públicos
+                que se pagan en pesos, pero vinculados a la tasa de cambio oficial del dólar desde la emisión hasta la
+                fecha de pago. Son utilizados especialmente por quienes buscan poder proteger sus ahorros de una posible devaluación, por lo que se convirtieron en instrumentos <strong> 
+                    ideales para cubrirse ante un salto en el tipo de cambio.</strong></h3>
+        </div>
+        <hr>
 
         {% if pesosdl_encontrados %}
         <table class="table table-hover">

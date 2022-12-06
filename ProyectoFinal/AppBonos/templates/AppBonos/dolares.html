@@ -4,48 +4,53 @@
 
 {% block contenido %}
 
-<header class="masthead-dolar">
-    <div class="container" style="margin:10% 0 5% 5%;">
-        <h2 style="font-weight: bold; font-size: 40px">Títulos en dólares</h2>
-
-        {% if dolares_encontrados %}
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Código</th>
-                    <th scope="col">Denominación</th>
-                    <th scope="col">Emisor</th>
-                    <th scope="col">Fecha de vencimiento</th>
-                    <th scope="col">Detalle</th>
-                    <th scope="col">Editar</th>
-                    <th scope="col">Borrar</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for dolares in dolares_encontrados %}
-                <tr>
-                    <th scope="row">{{forloop.counter}}</th>
-                    <td>{{dolares.codigo}}</td>
-                    <td>{{dolares.denominacion}}</td>
-                    <td>{{dolares.emisor}}</td>
-                    <td>{{dolares.fecha_vencimiento}}</td>
-                    <td> <a href="{% url 'DolarDetail' dolares.id %}" style="text-decoration: none; color:blue">Ver</a>
-                    </td>
-                    <td> <a href="{% url 'DolarUpdate' dolares.id %}"
-                            style="text-decoration: none; color:blue">Editar</a> </td>
-                    <td> <a href="{% url 'DolarDelete' dolares.id %}"
-                            style="text-decoration: none; color:blue">Borrar</a> </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        {% else %}
-        <p>No se encontraron especies cargadas en la base de datos.</p>
-        {% endif %}
-        <p><a href="{% url 'form_dolares' %}" style="text-decoration: none; color:blue"> Ingrese una nueva especie</a>
-        </p>
+<div class="container" style="margin:10% 0 5% 5%; width: 80%;">
+    <h2 style="font-weight: bold; font-size: 40px;">Títulos en dólares</h2>
+    <div style="background-color:rgb(227, 224, 220); border-radius: 5px; padding: 10px; text-align:start;">
+        <h3 style="font-weight: normal; font-size: 16px; padding-left: 10px; margin-bottom: 0;">Son títulos públicos
+            que brindan protección ante escenarios de devaluación y ofrecen elevados rendimientos en moneda dura.
+            También operan en pesos pero <strong>pagan renta y capital en dólares. </strong>Pueden ser de legislación local, conocidos comúnmente como "bonares", o de legislación Nueva York, también denominados “globales”.</h3>
     </div>
+    <hr>
+
+    {% if dolares_encontrados %}
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Código</th>
+                <th scope="col">Denominación</th>
+                <th scope="col">Emisor</th>
+                <th scope="col">Fecha de vencimiento</th>
+                <th scope="col">Detalle</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Borrar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for dolares in dolares_encontrados %}
+            <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{dolares.codigo}}</td>
+                <td>{{dolares.denominacion}}</td>
+                <td>{{dolares.emisor}}</td>
+                <td>{{dolares.fecha_vencimiento}}</td>
+                <td> <a href="{% url 'DolarDetail' dolares.id %}" style="text-decoration: none; color:blue">Ver</a>
+                </td>
+                <td> <a href="{% url 'DolarUpdate' dolares.id %}" style="text-decoration: none; color:blue">Editar</a>
+                </td>
+                <td> <a href="{% url 'DolarDelete' dolares.id %}" style="text-decoration: none; color:blue">Borrar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No se encontraron especies cargadas en la base de datos.</p>
+    {% endif %}
+    <p><a href="{% url 'form_dolares' %}" style="text-decoration: none; color:blue"> Ingrese una nueva especie</a>
+    </p>
+</div>
 </header>
 
 {% endblock %}
