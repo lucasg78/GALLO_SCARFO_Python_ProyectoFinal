@@ -59,6 +59,17 @@ class Pesodl(models.Model):
         return f"{self.codigo} {self.denominacion}"
 
 
+class Especie(models.Model):
+    codigo = models.CharField(max_length=30)
+    denominacion = models.CharField(max_length=100)
+    emisor = models.CharField(max_length=30)
+    fecha_emision = models.DateField(null=True)
+    fecha_vencimiento = models.DateField(null=True)
+    amortizacion = models.CharField(max_length=500)
+    interes = models.CharField(max_length=500)
+    ley = models.CharField(max_length=30)
+
+
 class Avatar(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     # Guardar avatares en la carpeta media/avatares

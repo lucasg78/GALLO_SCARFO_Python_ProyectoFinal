@@ -40,11 +40,13 @@ def procesar_form_mensajes(request):
     return mensajes(request)
 
 
+
 # Views
 # Mensajes - Detalle
 class MensajeDetail(LoginRequiredMixin, DetailView):
     model = Mensaje
     template_name = "AppBlog/mensaje_detalle.html"
+
 
 # Mensajes - Editar
 class MensajeUpdateView(LoginRequiredMixin, UpdateView):
@@ -52,6 +54,7 @@ class MensajeUpdateView(LoginRequiredMixin, UpdateView):
     fields = ["nombre", "email", "mensaje"]
     def get_success_url(self):
         return reverse("mensajes")
+
 
 # Mensajes - Borrar
 class MensajeDelete(LoginRequiredMixin, DeleteView):

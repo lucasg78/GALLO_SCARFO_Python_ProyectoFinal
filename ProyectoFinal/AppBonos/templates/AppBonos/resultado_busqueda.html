@@ -9,7 +9,7 @@
     <hr>
     <h2 style="font-weight: lighter; font-size: 25px; margin-top: 0;">Código de la especie: <strong>{{ codigo }}</strong></h2>
 
-    {% if dolares_encontrados %}
+    {% if especies_encontrados %}
 
     <table class="table table-hover" style="margin-top: 5%;">
         <thead>
@@ -22,21 +22,22 @@
             </tr>
         </thead>
         <tbody>
-            {% for dolares in dolares_encontrados %}
+            {% for especie in especies_encontrados %}
             <tr>
                 <th scope="row">{{forloop.counter}}</th>
-                <td>{{dolares.codigo}}</td>
-                <td>{{dolares.denominacion}}</td>
-                <td>{{dolares.emisor}}</td>
-                <td>{{dolares.fecha_vencimiento}}</td>               
+                <td>{{especie.codigo}}</td>
+                <td>{{especie.denominacion}}</td>
+                <td>{{especie.emisor}}</td>
+                <td>{{especie.fecha_vencimiento}}</td>               
                 </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
-    <p style="margin-top: 5%"><a href="{% url 'dolares' %}" style="text-decoration: none; color:blue; "> Ir al listado completo</a></p>
+    <p style="margin-top: 5%"><a href="{% url 'busqueda' %}" style="text-decoration: none; color:blue; "> Buscar otra especie</a></p>
     {% else %}
     <p>No se encontraron especies con ese código</p>
+    <p style="margin-top: 5%"><a href="{% url 'busqueda' %}" style="text-decoration: none; color:blue; "> Buscar otra especie</a></p>
     {% endif %}
 
 </div>
