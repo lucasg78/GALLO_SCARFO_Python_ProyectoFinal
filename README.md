@@ -16,11 +16,7 @@ El trabajo corresponde a la entrega final del Proyecto Final del curso de Python
 
 ## Características y funcionalidades
 
-La aplicación se desarrolló aplicando los conceptos vistos en el curso. En particular, se utilizó el patrón de diseño web utilizado por Django, denominado Modelo-Template-View (MTV) ó Modelo-View-Template (MVT). El modelo (model) permite administrar la base de datos, la plantilla (template) es una capa de presentación que se encarga completamente de la interfaz de usuario y la vista (view) se utiliza para ejecutar la lógica del negocio e interactuar con el modelo para transportar datos y renderizar la plantilla (template). El flujo de control basado en MVT funciona de la siguiente manera: 1) el usuario solicita un recurso a Django; 2) Django verifica el recurso disponible en la URL; 3) la URL asignada llama a una vista (view) que interactúa con el modelo (model) y renderiza una plantilla (template) como respuesta al usuario.
-
-Para simplificar algunos procesos, se crearon tres clases basadas en vistas: UpdateView, DeleteView y DetailView.
-
-SQLite y DB Browser para acceder a la información de las base de datos.
+La aplicación se desarrolló aplicando los conceptos vistos en el curso. En particular, se utilizó el patrón de diseño web utilizado por Django, denominado Modelo-Template-View (MTV) ó Modelo-View-Template (MVT). El modelo (model) permite administrar la base de datos, la plantilla (template) es una capa de presentación que se encarga completamente de la interfaz de usuario y la vista (view) se utiliza para ejecutar la lógica del negocio e interactuar con el modelo para transportar datos y renderizar la plantilla (template). El flujo de control basado en MVT funciona de la siguiente manera: 1) el usuario solicita un recurso a Django; 2) Django verifica el recurso disponible en la URL; 3) la URL asignada llama a una vista (view) que interactúa con el modelo (model) y renderiza una plantilla (template) como respuesta al usuario. 
 
 --------------------------------------------------------------------------------------------------
 
@@ -57,7 +53,7 @@ Contiene cada una de las rutas de las vistas de las apps. En el caso del logout,
 
 ### views.py
 
-Aparecen todas las vistas que se utilizan en las apps, desde el formulario para la creación de nuevos registros en la BBDD hasta la consulta individual y el listado de los registros existentes. También se utilizaron los mixin y decoradores de Django para que sólo usuarios logueados puedan ver el sitio o para que puedan acceder a una Clase determinada estando logueados.
+Aparecen todas las vistas que se utilizan en las apps, desde el formulario para la creación de nuevos registros en las bases de datos hasta la consulta individual y el listado de los registros existentes. Para simplificar algunos procesos, se crearon tres clases basadas en vistas: UpdateView, DeleteView y DetailView. Además, se creó el login aplicando AuthenticationForm, el sistema de autenticación de Django. Finalmente, se utilizaron los mixin y decoradores de Django para que sólo usuarios logueados puedan ver el sitio o para que puedan acceder a una sección determinada estando logueados.
 
 ### templates
 
@@ -86,7 +82,7 @@ Para instalar dependencias, necesitas ejecutar `pip install`:
 > python -m pip install
 ```
 
-### Crear la base de datos
+### Crear las bases de datos
 
 Para transformar los modelos en bases de datos y para generar sus estructuras, deberás ejecutar los siguientes comandos:
 
@@ -97,7 +93,7 @@ Para transformar los modelos en bases de datos y para generar sus estructuras, d
 
 ### Ejecutar el servidor
 
-Para ejecutar el servidor y poder desplegar el sitio en tu explorador, deberas ejecutar este comando:
+Para ejecutar el servidor y poder desplegar el sitio en tu explorador, deberás ejecutar este comando:
 
 ```bash
 > python mananage.py runserver
@@ -105,11 +101,12 @@ Para ejecutar el servidor y poder desplegar el sitio en tu explorador, deberas e
 
 --------------------------------------------------------------------------------------------------
 
+## Acceso a las bases de datos
+
+Se utilizaron SQLite y DB Browser para acceder a la información de las base de datos.
+
+--------------------------------------------------------------------------------------------------
+
 ## Pruebas
 
-Las pruebas realizadas fueron:
-
-- Se creó un usuario desde el formulario que solicita los datos.
-- Se creó un dato de literatura desde el formulario que solicita los datos.
-- Se creó un dato de musica desde el formulario que solicita los datos.
-- Se creó un dato de cine desde el formulario que solicita los datos.
+Se realizaron 28 pruebas unitarias y se documentaron en el arhivo casos_de_prueba.xls
