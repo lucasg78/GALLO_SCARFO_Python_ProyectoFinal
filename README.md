@@ -20,26 +20,110 @@ La aplicación se desarrolló aplicando los conceptos vistos en el curso. En par
 
 --------------------------------------------------------------------------------------------------
 
-## Estilos
+## Documentación
+
+### models.py
+
+En este archivo se encuentran los tres modelos de datos utilizados.
+
+#### 1) Modelo Pasajero
+
+Campos:
+
+- nombre(CharField, nombre del pasajero)
+- apellido(CharField, apellido del pasajero)
+- email(EmailField, email del pasajero)
+- telefono(CharField, teléfono del pasajero)
+- profesion(CharField, profesión del pasajero)
+
+#### 2) Modelo Habitacion
+
+Campos:
+
+- nombre(CharField, nombre indentificatorio de la habitación)
+- numero(IntegerField, número identificatorio de la habitación)
+- capacidad(IntegerField, capacidad -en cantidad de personas- de la habitación)
+
+#### 3) Modelo Reserva
+
+Campos:
+
+- Nombre(CharField, nombre del pasajero)
+- apellido(CharField, apellido del pasajero)
+- fecha_in(DateField, fecha de ingreso)
+- fecha_out(DateField, fecha de salida)
+
+### forms.py
+
+En este archivo se encuentran los tres formularios (uno para cada modelo) usados para cargar los datos que quedan guardados en la base de datos.
+
+### urls.py
+
+Contiene cada una de las rutas de las vistas de la app.
+
+
+### views.py
+
+Aparecen todas las vistas que se utilizan en la app, desde el formulario para la creación de nuevos registros en la BBDD hasta la consulta individual y el listado de todos los registros existentes.
+
+### templates
 
 En las carpetas **templates** de ambas apps se encuentran todos los archivos HTML utilizados, para los cuales se adaptó una plantilla de Bootstrap descargada de [Start Bootstrap](https://startbootstrap.com/), aplicando el concepto de herencia entre archivos para eficientizar el código.
 
 --------------------------------------------------------------------------------------------------
 
-## Requisitos
+## Instalación
 
-Deberá tener instalado:
+Podrás instalar el software necesario de la siguiente manera:
 
-- python version 3.10.8
-- django version 4.1.4
-- pillow version 9.3.0
+### Verificar la versión de Python
 
-### Ejecutar los comandos
+Este proyecto fue escrito con Python 3.10.8, en base a eso sugerimos que lo pruebes con esta versión o una superior con el fin de  evitar posibles incompatibilidades.
 
-Para realizar las migraciones,este proyecto usa SQLite3
+Mac:
 
-1) python manage.py makemigrations
-2) python manage.py migrate
+```bash
+> python --version
+> Python 3.10.8
+```
+
+in windows:
+
+```bash
+c:\> python3 --version
+c:\> Python 3.10.8
+```
+
+## Instalar dependencias
+
+Para instalar dependencias, necesitas ejecutar `pip install`, asegurándote de estar dentro de la carpeta del archivo y de poder visualizar el archivo `requirements.txt` cuando ejecutes `ls` o en su defecto `dir`.
+
+```bash
+> pip install -r requirements.txt
+```
+
+### Crear la base de datos
+
+Para realizar las migraciones de los modelos a la BBDD, deberás ejecutar los siguientes comandos:
+
+```bash
+> python manage.py makemigrations
+> python manage.py migrate
+```
+
+### Ejecutar el servidor
+
+Mac:
+
+```bash
+> python3 mananage.py runserver
+```
+
+windows:
+
+```bash
+c:\> python mananage.py runserver
+```
 
 --------------------------------------------------------------------------------------------------
 
