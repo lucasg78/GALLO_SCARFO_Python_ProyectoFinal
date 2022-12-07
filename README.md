@@ -18,6 +18,8 @@ El trabajo corresponde a la entrega final del Proyecto Final del curso de Python
 
 La aplicación se desarrolló aplicando los conceptos vistos en el curso. En particular, se utilizó el patrón de diseño web utilizado por Django, denominado Modelo-Template-View (MTV) ó Modelo-View-Template (MVT). El modelo (model) permite administrar la base de datos, la plantilla (template) es una capa de presentación que se encarga completamente de la interfaz de usuario y la vista (view) se utiliza para ejecutar la lógica del negocio e interactuar con el modelo para transportar datos y renderizar la plantilla (template). El flujo de control basado en MVT funciona de la siguiente manera: 1) el usuario solicita un recurso a Django; 2) Django verifica el recurso disponible en la URL; 3) la URL asignada llama a una vista (view) que interactúa con el modelo (model) y renderiza una plantilla (template) como respuesta al usuario.
 
+Para simplificar algunos procesos, se crearon tres clases basadas en vistas: UpdateView, DeleteView y DetailView.
+
 SQLite y DB Browser para acceder a la información de las base de datos.
 
 --------------------------------------------------------------------------------------------------
@@ -47,15 +49,15 @@ Se repiten los mismos campos que en el modelo 1) Dolar. En el caso del modelo Es
 
 ### forms.py
 
-En este archivo se encuentran los dos formularios usados para crear un usuario (UserRegisterForm) y para editar su perfil (UserEditionForm), los cuales son ofrecios por Django como sistema de autenticación de usuario integrado. Esta configuración cumple con los requisitos más comunes de los proyectos, maneja una amplia gama de tareas y contraseñas y permisos válidos.
+En este archivo se encuentran los dos formularios usados para crear un usuario (UserRegisterForm) y para editar su perfil (UserEditionForm), los cuales son ofrecidos por Django como sistema de autenticación de usuario integrado. Esta configuración cumple con los requisitos más comunes de los proyectos, maneja una amplia gama de tareas y contraseñas y permisos válidos.
 
 ### urls.py
 
-Contiene cada una de las rutas de las vistas de las apps.
+Contiene cada una de las rutas de las vistas de las apps. En el caso del logout, se utilizó la vista predefinida por Django LogoutView para renderizar la página AppBonos/logout.html
 
 ### views.py
 
-Aparecen todas las vistas que se utilizan en las apps, desde el formulario para la creación de nuevos registros en la BBDD hasta la consulta individual y el listado de los registros existentes.
+Aparecen todas las vistas que se utilizan en las apps, desde el formulario para la creación de nuevos registros en la BBDD hasta la consulta individual y el listado de los registros existentes. También se utilizaron los mixin y decoradores de Django para que sólo usuarios logueados puedan ver el sitio o para que puedan acceder a una Clase determinada estando logueados.
 
 ### templates
 

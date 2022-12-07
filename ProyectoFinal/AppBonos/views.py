@@ -7,12 +7,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
-from django.views.generic import (
-    UpdateView,
-    DeleteView,
-)
-
+# Vistas basadas en clases
+from django.views.generic.edit import UpdateView, DeleteView
 from django.views.generic.detail import DetailView
+
 from django.urls import reverse
 
 from AppBonos.forms import UserRegisterForm, UserEditionForm
@@ -88,7 +86,6 @@ def inicio(request):
 
 
 # About
-@login_required
 def about(request):
     return render(request, "AppBonos/about.html")
 
@@ -262,7 +259,7 @@ def busqueda(request):
 @ login_required
 def buscar(request):
     if not request.GET["codigo"]:
-        return HttpResponse("No enviaste ningún dato")
+        return HttpResponse("Ingresá un código")
     else:
         codigo_a_buscar=request.GET["codigo"]
         especies=Especie.objects.filter(codigo=codigo_a_buscar)
