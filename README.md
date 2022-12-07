@@ -109,4 +109,4 @@ Se utilizaron SQLite y DB Browser para acceder a la información de las base de 
 
 ## Pruebas
 
-Se realizaron 28 pruebas unitarias y se documentaron en el arhivo casos_de_prueba.xls
+Se realizaron 28 pruebas unitarias y se documentaron en el archivo casos_de_prueba.xls
