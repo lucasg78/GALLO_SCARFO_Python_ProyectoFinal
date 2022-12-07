@@ -4,7 +4,7 @@
 - Comisión: 44470
 - Alumnos: Alejandro Lucas Gallo y Emiliano Scarfó
 - Entrega del Proyecto Final
-- 6 de diciembre de 2022
+- 7 de diciembre de 2022
 
 --------------------------------------------------------------------------------------------------
 
@@ -16,7 +16,7 @@ El trabajo corresponde a la entrega final del Proyecto Final del curso de Python
 
 ## Características y funcionalidades
 
-La aplicación se desarrolló aplicando los conceptos vistos en el curso. En particular, se utilizó el patrón de diseño web utilizado por Django, denominado Modelo-Template-View (MTV) ó Modelo-View-Template (MVT). El modelo (model) permite administrar la base de datos, la plantilla (template) es una capa de presentación que se encarga completamente de la interfaz de usuario y la vista (view) se utiliza para ejecutar la lógica del negocio e interactuar con el modelo para transportar datos y renderizar la plantilla (template). El flujo de control basado en MVT funciona de la siguiente manera: 1) el usuario solicita un recurso a Django; 2) Django verifica el recurso disponible en la URL; 3) la URL asignada llama a una vista (view) que interactúa con el modelo (model) y renderiza una plantilla (template) como respuesta al usuario. 
+La aplicación se desarrolló aplicando los conceptos vistos en el curso. En particular, se utilizó el patrón de diseño web utilizado por Django, denominado Modelo-Template-View (MTV) ó Modelo-View-Template (MVT). El modelo (model) permite administrar la base de datos, la plantilla (template) es una capa de presentación que se encarga completamente de la interfaz de usuario y la vista (view) se utiliza para ejecutar la lógica del negocio e interactuar con el modelo para transportar datos y renderizar la plantilla (template). El flujo de control basado en MVT funciona de la siguiente manera: 1) el usuario solicita un recurso a Django; 2) Django verifica el recurso disponible en la URL; 3) la URL asignada llama a una vista (view) que interactúa con el modelo (model) y renderiza una plantilla (template) como respuesta al usuario.
 
 --------------------------------------------------------------------------------------------------
 
@@ -67,7 +67,7 @@ Podrás instalar el software necesario de la siguiente manera:
 
 ### Verificar la versión de Python
 
-Este proyecto fue escrito con Python 3.10.8, en base a eso sugerimos que lo pruebes con esta versión o una superior con el fin de  evitar posibles incompatibilidades.
+Este proyecto fue desarrollado con Python 3.10.8, por lo que sugerimos que lo pruebes con esta versión o una superior con el fin de  evitar posibles incompatibilidades.
 
 ```bash
 > python3 --version
@@ -76,7 +76,7 @@ Este proyecto fue escrito con Python 3.10.8, en base a eso sugerimos que lo prue
 
 ## Instalar dependencias
 
-Para instalar dependencias, necesitas ejecutar `pip install`:
+Para instalar dependencias, necesitás instalar pip:
 
 ```bash
 > python -m pip install
@@ -103,7 +103,7 @@ Para ejecutar el servidor y poder desplegar el sitio en tu explorador, deberás 
 
 ## Acceso a las bases de datos
 
-Se utilizaron SQLite y DB Browser para acceder a la información de las base de datos.
+Se utilizaron SQLite y DB Browser para acceder a la información de las bases de datos.
 
 --------------------------------------------------------------------------------------------------
 
