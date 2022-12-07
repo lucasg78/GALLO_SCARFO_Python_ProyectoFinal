@@ -110,3 +110,9 @@ Se utilizaron SQLite y DB Browser para acceder a la información de las bases de
 ## Pruebas
 
 Se realizaron 28 pruebas unitarias y se documentaron en el archivo casos_de_prueba.xls
+
+--------------------------------------------------------------------------------------------------
+
+## Video
+
+En este video se puede ver el sitio web funcionando:

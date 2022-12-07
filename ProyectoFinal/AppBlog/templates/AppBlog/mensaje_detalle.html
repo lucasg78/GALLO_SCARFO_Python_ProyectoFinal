@@ -1,0 +1,23 @@
+{% extends "AppBonos/base.html" %}
+
+{% load static %}
+
+{% block contenido %}
+
+<div class="container" style="margin:11% 0 5% 5%; padding: 0 20% 0 20%;">
+    
+    <div class="card text-center">
+        <div class="card-header" style="font-size: 20px; font-weight: bold;">Detalle del mensaje</div>
+        <div class="card-body">
+          <h5 class="card-title">{{mensaje.nombre}}</h5><hr>
+          <p class="card-text">Fecha: <br>{{mensaje.fecha}}</p><hr>
+          <p class="card-text">Mensaje: {{mensaje.mensaje}}</p><hr>
+          <a href="{% url 'mensajes' %}" class="btn btn-primary">Volver</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+                    
+
