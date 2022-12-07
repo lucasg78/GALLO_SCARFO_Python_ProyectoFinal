@@ -2,11 +2,10 @@ from django.shortcuts import render
 from AppBlog.models import Mensaje
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse
 
-from django.views.generic import (
-    UpdateView,
-    DeleteView,
-)
+from django.views.generic.edit import UpdateView, DeleteView
+from django.views.generic import DetailView
 
 from django.views.generic.detail import DetailView
 from django.urls import reverse
@@ -50,10 +49,10 @@ class MensajeDetail(LoginRequiredMixin, DetailView):
 
 # Mensajes - Editar
 class MensajeUpdateView(LoginRequiredMixin, UpdateView):
-    model = Mensaje
-    fields = ["nombre", "email", "mensaje"]
+    model=Mensaje
+    fields=["nombre", "mensaje",]
     def get_success_url(self):
-        return reverse("mensajes")
+        return reverse("mensajes")   
 
 
 # Mensajes - Borrar

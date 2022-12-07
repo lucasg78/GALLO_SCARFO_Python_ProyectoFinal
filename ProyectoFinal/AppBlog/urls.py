@@ -2,9 +2,9 @@ from django.urls import path
 from django.contrib.auth.views import *
 
 from AppBlog.views import (
-    MensajeUpdateView,
     MensajeDetail,
     MensajeDelete,
+    MensajeUpdateView,
     blog,
     mensajes,
     procesar_form_mensajes,

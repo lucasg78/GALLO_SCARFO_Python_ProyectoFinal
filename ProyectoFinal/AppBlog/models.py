@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import date
+from django.urls import reverse
 
 # Create your models here.
 class Mensaje(models.Model):

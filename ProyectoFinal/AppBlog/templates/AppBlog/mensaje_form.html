@@ -1,0 +1,19 @@
+{% extends "AppBlog/base.html" %}
+
+{% load static %}
+
+{% block contenido %}
+
+<div class="container" style="margin:11% 0 5% 5%; padding: 0 20% 0 20%; margin-bottom: 15%;">
+    <h2 style="font-weight: bold; font-size: 40px">Editá tu mensaje</h2>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="d-grid">
+            <button class="btn btn-primary btn-lg enabled" id="submitButton" type="submit">Actualizar</button>
+        </div>
+</div>
+</form>
+</div>
+
+{% endblock %}
